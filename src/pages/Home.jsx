@@ -17,7 +17,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh px-5 pb-10 pt-14"
+      className="min-h-dvh px-7 pb-12 pt-14"
     >
       {/* Header */}
       <header className="text-center mb-10">
@@ -34,9 +34,9 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.5 }}
-          className="text-text-secondary text-[0.95rem] leading-relaxed max-w-[300px] mx-auto"
+          className="text-text-secondary text-[0.95rem] leading-relaxed max-w-[320px] mx-auto"
         >
-          Conoce a tu candidato, infórmate y vota bien.
+          Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
         </motion.p>
       </header>
 

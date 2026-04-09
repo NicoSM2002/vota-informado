@@ -87,7 +87,7 @@ export default function Chat() {
         className="sticky top-0 z-30 backdrop-blur-xl border-b border-border/60"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)' }}
       >
-        <div className="flex items-center gap-3 px-4 py-3">
+        <div className="flex items-center gap-3 px-5 py-3.5">
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
@@ -116,14 +116,14 @@ export default function Chat() {
           {/* Sources button */}
           <button
             onClick={() => setSourcesOpen(true)}
-            className="w-9 h-9 rounded-full flex items-center justify-center
+            className="flex items-center gap-1.5 px-3 h-9 rounded-full
               border transition-colors flex-shrink-0"
             style={{
               backgroundColor: candidate.colorLight,
               borderColor: candidate.color + '30',
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path
                 d="M3 2.5H6.5L8 4.5H13V12.5H3V2.5Z"
                 stroke={candidate.color}
@@ -133,12 +133,15 @@ export default function Chat() {
               />
               <path d="M6 8H10M6 10H9" stroke={candidate.color} strokeWidth="1.2" strokeLinecap="round" />
             </svg>
+            <span className="text-[0.65rem] font-semibold" style={{ color: candidate.color }}>
+              Fuentes
+            </span>
           </button>
         </div>
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto px-4 py-4">
+      <div className="flex-1 overflow-y-auto px-6 py-5">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[60dvh]">
             {/* Welcome */}
@@ -151,17 +154,17 @@ export default function Chat() {
             <h3 className="font-heading text-xl font-bold text-navy mb-1.5">
               Pregúntale a {candidate.name.split(' ')[0]}
             </h3>
-            <p className="text-[0.8rem] text-text-secondary text-center max-w-[260px] mb-8 leading-relaxed">
+            <p className="text-[0.85rem] text-text-secondary text-center max-w-[270px] mb-10 leading-relaxed">
               Haz cualquier pregunta sobre sus propuestas y plan de gobierno
             </p>
 
             {/* Suggested questions */}
-            <div className="flex flex-col gap-2 w-full max-w-[320px]">
+            <div className="flex flex-col gap-3 w-full max-w-[320px]">
               {suggestedQuestions.map((q, i) => (
                 <button
                   key={i}
                   onClick={() => sendMessage(q)}
-                  className="text-left text-[0.8rem] px-4 py-3 rounded-xl bg-bg-card border border-border
+                  className="text-left text-[0.875rem] px-5 py-4 rounded-xl bg-bg-card border border-border
                     hover:border-gold/50 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                     active:scale-[0.98] transition-all duration-200 text-navy-light"
                 >
@@ -239,7 +242,7 @@ export default function Chat() {
 
       {/* Input area */}
       <div
-        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-4 py-3"
+        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-6 py-4"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
       >
         <form onSubmit={handleSubmit} className="flex gap-2">
