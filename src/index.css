@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --color-bg: #F5F0E8;
+  --color-bg-card: #FFFFFF;
+  --color-navy: #0B1D3A;
+  --color-navy-light: #1B2A4A;
+  --color-text: #1B2A4A;
+  --color-text-secondary: #5A6B8A;
+  --color-gold: #C5952E;
+  --color-gold-light: #F0E6D0;
+  --color-border: #E2DCD0;
+
+  --color-abelardo: #B91C1C;
+  --color-claudia: #0D7377;
+  --color-ivan: #7C2D12;
+  --color-paloma: #1D4ED8;
+  --color-sergio: #15803D;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+/* Markdown content in chat */
+.chat-markdown p {
+  margin-bottom: 0.5rem;
+}
+
+.chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-markdown ul, .chat-markdown ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.chat-markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.chat-markdown strong {
+  font-weight: 700;
+}
+
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.chat-markdown h1 { font-size: 1.125rem; }
+.chat-markdown h2 { font-size: 1rem; }
+.chat-markdown h3 { font-size: 0.9375rem; }
