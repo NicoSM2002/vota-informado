@@ -21,7 +21,7 @@ export default function Home() {
       style={{ paddingLeft: '15px', paddingRight: '15px' }}
     >
       {/* Header */}
-      <header className="text-center mb-10">
+      <header className="text-center mb-10" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
         {colombianFlag}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.35 }}
-        className="flex items-center gap-3 mb-6 px-1"
+        className="flex items-center gap-3 mb-8 px-1"
       >
         <div className="h-px flex-1 bg-border" />
         <span className="text-[0.7rem] uppercase tracking-[0.2em] text-text-secondary font-semibold whitespace-nowrap">

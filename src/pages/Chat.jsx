@@ -164,7 +164,7 @@ export default function Chat() {
                 <button
                   key={i}
                   onClick={() => sendMessage(q)}
-                  className="text-left text-[0.9rem] px-5 py-4 rounded-2xl bg-bg-card border border-border
+                  className="text-left text-[0.9rem] px-6 py-4 rounded-2xl bg-bg-card border border-border
                     hover:border-gold/50 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                     active:scale-[0.98] transition-all duration-200 text-navy-light"
                 >
@@ -253,7 +253,7 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Escribe tu pregunta..."
             disabled={loading}
-            className="flex-1 bg-bg-card border border-border rounded-2xl px-5 py-3.5
+            className="flex-1 bg-bg-card border border-border rounded-2xl px-6 py-3.5
               text-[0.9rem] text-navy placeholder-text-secondary/50
               focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all
               disabled:opacity-50"
