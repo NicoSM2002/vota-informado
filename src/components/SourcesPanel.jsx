@@ -27,22 +27,22 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               shadow-[0_-4px_24px_rgba(0,0,0,0.1)] max-h-[75dvh] overflow-y-auto"
           >
             {/* Handle */}
-            <div className="flex justify-center pt-3 pb-2">
+            <div className="flex justify-center pt-4 pb-2">
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
 
-            <div className="px-6 pb-8">
+            <div className="px-8 pb-10">
               {/* Header */}
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="font-heading text-lg font-bold text-navy">Fuentes</h3>
-                  <p className="text-[0.75rem] text-text-secondary mt-0.5">
+                  <h3 className="font-heading text-xl font-bold text-navy">Fuentes</h3>
+                  <p className="text-[0.8rem] text-text-secondary mt-1">
                     Información de {candidate.name}
                   </p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="w-8 h-8 rounded-full bg-bg flex items-center justify-center
+                  className="w-9 h-9 rounded-full bg-bg flex items-center justify-center
                     hover:bg-border transition-colors"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -53,7 +53,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
 
               {/* Divider */}
               <div
-                className="h-0.5 rounded-full mb-5"
+                className="h-0.5 rounded-full mb-6"
                 style={{ backgroundColor: candidate.colorLight }}
               />
 
@@ -62,10 +62,10 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
                 {candidate.sources.map((source, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-bg border border-border/50"
+                    className="flex items-start gap-4 p-4 rounded-xl bg-bg border border-border/50"
                   >
                     <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
                       style={{ backgroundColor: candidate.colorLight }}
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -79,10 +79,10 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[0.8rem] font-medium text-navy-light leading-snug">
+                      <p className="text-[0.85rem] font-medium text-navy-light leading-snug">
                         {source.name}
                       </p>
-                      <p className="text-[0.7rem] text-text-secondary mt-0.5">
+                      <p className="text-[0.75rem] text-text-secondary mt-1">
                         {source.type}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               </div>
 
               {/* Disclaimer */}
-              <p className="text-[0.65rem] text-text-secondary text-center mt-6 leading-relaxed opacity-70">
+              <p className="text-[0.7rem] text-text-secondary text-center mt-8 leading-relaxed opacity-70 px-4">
                 Las respuestas se generan a partir de los planes de gobierno oficiales publicados por cada candidato.
               </p>
             </div>

@@ -7,14 +7,14 @@ export default function CandidateCard({ candidate }) {
     <button
       onClick={() => navigate(`/chat/${candidate.id}`)}
       className="group w-full bg-bg-card rounded-2xl border border-border
-        overflow-hidden flex items-center gap-4 p-3 pr-5
+        overflow-hidden flex items-center gap-4 p-4
         shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]
         hover:shadow-[0_2px_8px_rgba(0,0,0,0.08),0_8px_24px_rgba(0,0,0,0.06)]
         active:scale-[0.98] transition-all duration-300 cursor-pointer text-left"
     >
       {/* Photo */}
       <div
-        className="relative w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0"
+        className="relative w-[68px] h-[68px] rounded-xl overflow-hidden flex-shrink-0"
         style={{ boxShadow: `0 2px 12px ${candidate.color}20` }}
       >
         <img
@@ -32,14 +32,14 @@ export default function CandidateCard({ candidate }) {
 
       {/* Info */}
       <div className="flex-1 min-w-0">
-        <h3 className="font-heading text-lg font-semibold text-navy-light leading-tight mb-0.5 truncate">
+        <h3 className="font-heading text-[1.1rem] font-semibold text-navy-light leading-tight mb-1 truncate">
           {candidate.name}
         </h3>
-        <p className="text-[0.75rem] text-text-secondary leading-snug truncate">
+        <p className="text-[0.8rem] text-text-secondary leading-snug truncate">
           {candidate.party}
         </p>
         <p
-          className="text-[0.7rem] font-medium mt-1 leading-snug truncate italic"
+          className="text-[0.75rem] font-medium mt-1.5 leading-snug truncate italic"
           style={{ color: candidate.color }}
         >
           "{candidate.slogan}"
@@ -48,8 +48,8 @@ export default function CandidateCard({ candidate }) {
 
       {/* Arrow */}
       <div
-        className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center
-          transition-all duration-300 group-hover:translate-x-0.5"
+        className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center
+          transition-all duration-300 group-hover:translate-x-0.5 ml-1"
         style={{ backgroundColor: candidate.colorLight }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5">

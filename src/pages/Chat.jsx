@@ -87,11 +87,11 @@ export default function Chat() {
         className="sticky top-0 z-30 backdrop-blur-xl border-b border-border/60"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)' }}
       >
-        <div className="flex items-center gap-3 px-5 py-3.5">
+        <div className="flex items-center gap-3 px-5 py-4">
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
-            className="w-9 h-9 rounded-full bg-bg-card border border-border flex items-center justify-center
+            className="w-10 h-10 rounded-full bg-bg-card border border-border flex items-center justify-center
               hover:bg-border/50 transition-colors flex-shrink-0"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -108,22 +108,22 @@ export default function Chat() {
               <img src={candidate.photo} alt={candidate.name} className="w-full h-full object-cover" />
             </div>
             <div className="min-w-0">
-              <h2 className="font-heading text-sm font-bold text-navy truncate">{candidate.name}</h2>
-              <p className="text-[0.65rem] text-text-secondary truncate">{candidate.party}</p>
+              <h2 className="font-heading text-[0.9rem] font-bold text-navy truncate">{candidate.name}</h2>
+              <p className="text-[0.7rem] text-text-secondary truncate">{candidate.party}</p>
             </div>
           </div>
 
           {/* Sources button */}
           <button
             onClick={() => setSourcesOpen(true)}
-            className="flex items-center gap-1.5 px-3 h-9 rounded-full
+            className="flex items-center gap-1.5 px-3.5 h-9 rounded-full
               border transition-colors flex-shrink-0"
             style={{
               backgroundColor: candidate.colorLight,
               borderColor: candidate.color + '30',
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path
                 d="M3 2.5H6.5L8 4.5H13V12.5H3V2.5Z"
                 stroke={candidate.color}
@@ -133,7 +133,7 @@ export default function Chat() {
               />
               <path d="M6 8H10M6 10H9" stroke={candidate.color} strokeWidth="1.2" strokeLinecap="round" />
             </svg>
-            <span className="text-[0.65rem] font-semibold" style={{ color: candidate.color }}>
+            <span className="text-[0.7rem] font-semibold" style={{ color: candidate.color }}>
               Fuentes
             </span>
           </button>
@@ -141,30 +141,30 @@ export default function Chat() {
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto px-6 py-5">
+      <div className="flex-1 overflow-y-auto px-6 py-6">
         {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center min-h-[60dvh]">
+          <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
             <div
-              className="w-20 h-20 rounded-2xl overflow-hidden mb-5 shadow-lg"
+              className="w-24 h-24 rounded-2xl overflow-hidden mb-6 shadow-lg"
               style={{ boxShadow: `0 4px 20px ${candidate.color}25` }}
             >
               <img src={candidate.photo} alt={candidate.name} className="w-full h-full object-cover" />
             </div>
-            <h3 className="font-heading text-xl font-bold text-navy mb-1.5">
+            <h3 className="font-heading text-[1.3rem] font-bold text-navy mb-2">
               Pregúntale a {candidate.name.split(' ')[0]}
             </h3>
-            <p className="text-[0.85rem] text-text-secondary text-center max-w-[270px] mb-10 leading-relaxed">
+            <p className="text-[0.9rem] text-text-secondary text-center max-w-[280px] mb-10 leading-relaxed">
               Haz cualquier pregunta sobre sus propuestas y plan de gobierno
             </p>
 
             {/* Suggested questions */}
-            <div className="flex flex-col gap-3 w-full max-w-[320px]">
+            <div className="flex flex-col gap-3 w-full">
               {suggestedQuestions.map((q, i) => (
                 <button
                   key={i}
                   onClick={() => sendMessage(q)}
-                  className="text-left text-[0.875rem] px-5 py-4 rounded-xl bg-bg-card border border-border
+                  className="text-left text-[0.9rem] px-5 py-4 rounded-2xl bg-bg-card border border-border
                     hover:border-gold/50 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                     active:scale-[0.98] transition-all duration-200 text-navy-light"
                 >
@@ -182,14 +182,14 @@ export default function Chat() {
               >
                 {msg.role === 'assistant' && (
                   <div
-                    className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mr-2 mt-1 border"
+                    className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mr-2.5 mt-1 border"
                     style={{ borderColor: candidate.color + '40' }}
                   >
                     <img src={candidate.photo} alt="" className="w-full h-full object-cover" />
                   </div>
                 )}
                 <div
-                  className={`max-w-[82%] px-4 py-3 text-[0.85rem] leading-relaxed ${
+                  className={`max-w-[80%] px-4 py-3 text-[0.875rem] leading-relaxed ${
                     msg.role === 'user'
                       ? 'rounded-2xl rounded-br-md text-white'
                       : 'rounded-2xl rounded-bl-md bg-bg-card border border-border/60 text-navy-light'
@@ -211,7 +211,7 @@ export default function Chat() {
             {loading && (
               <div className="flex justify-start">
                 <div
-                  className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mr-2 mt-1 border"
+                  className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mr-2.5 mt-1 border"
                   style={{ borderColor: candidate.color + '40' }}
                 >
                   <img src={candidate.photo} alt="" className="w-full h-full object-cover" />
@@ -245,7 +245,7 @@ export default function Chat() {
         className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-6 py-4"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
       >
-        <form onSubmit={handleSubmit} className="flex gap-2">
+        <form onSubmit={handleSubmit} className="flex gap-3">
           <input
             ref={inputRef}
             type="text"
@@ -253,15 +253,15 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Escribe tu pregunta..."
             disabled={loading}
-            className="flex-1 bg-bg-card border border-border rounded-xl px-4 py-3
-              text-[0.85rem] text-navy placeholder-text-secondary/50
+            className="flex-1 bg-bg-card border border-border rounded-2xl px-5 py-3.5
+              text-[0.9rem] text-navy placeholder-text-secondary/50
               focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all
               disabled:opacity-50"
           />
           <button
             type="submit"
             disabled={!input.trim() || loading}
-            className="w-11 h-11 rounded-xl flex items-center justify-center
+            className="w-12 h-12 rounded-2xl flex items-center justify-center
               text-white transition-all disabled:opacity-30 active:scale-95 flex-shrink-0"
             style={{ backgroundColor: candidate.color }}
           >
