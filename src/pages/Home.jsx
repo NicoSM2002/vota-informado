@@ -18,7 +18,7 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="min-h-dvh pb-14 pt-14"
-      style={{ paddingLeft: '44px', paddingRight: '44px' }}
+      style={{ paddingLeft: '15px', paddingRight: '15px' }}
     >
       {/* Header */}
       <header className="text-center mb-10">
