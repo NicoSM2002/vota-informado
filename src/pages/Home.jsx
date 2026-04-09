@@ -17,7 +17,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh px-8 pb-14 pt-14"
+      className="min-h-dvh px-10 pb-14 pt-14"
     >
       {/* Header */}
       <header className="text-center mb-10">

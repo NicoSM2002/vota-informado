@@ -87,7 +87,7 @@ export default function Chat() {
         className="sticky top-0 z-30 backdrop-blur-xl border-b border-border/60"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)' }}
       >
-        <div className="flex items-center gap-3 px-6 py-4">
+        <div className="flex items-center gap-3 px-7 py-4">
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
@@ -141,7 +141,7 @@ export default function Chat() {
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto px-8 py-6">
+      <div className="flex-1 overflow-y-auto px-10 py-6">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
@@ -242,7 +242,7 @@ export default function Chat() {
 
       {/* Input area */}
       <div
-        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-8 py-4"
+        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-10 py-4"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
       >
         <form onSubmit={handleSubmit} className="flex gap-3">
