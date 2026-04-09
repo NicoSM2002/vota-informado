@@ -31,7 +31,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
 
-            <div className="px-10 pb-10">
+            <div className="pb-10" style={{ paddingLeft: '44px', paddingRight: '44px' }}>
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
