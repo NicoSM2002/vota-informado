@@ -17,7 +17,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh px-6 pb-14 pt-14"
+      className="min-h-dvh px-8 pb-14 pt-14"
     >
       {/* Header */}
       <header className="text-center mb-10">
@@ -73,7 +73,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="mt-12 text-center px-4"
+        className="mt-12 text-center"
       >
         <div className="h-px bg-border mb-5" />
         <p className="text-[0.75rem] text-text-secondary leading-relaxed">

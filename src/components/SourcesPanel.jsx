@@ -31,7 +31,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
 
-            <div className="px-8 pb-10">
+            <div className="px-10 pb-10">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -91,7 +91,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               </div>
 
               {/* Disclaimer */}
-              <p className="text-[0.7rem] text-text-secondary text-center mt-8 leading-relaxed opacity-70 px-4">
+              <p className="text-[0.7rem] text-text-secondary text-center mt-8 leading-relaxed opacity-70">
                 Las respuestas se generan a partir de los planes de gobierno oficiales publicados por cada candidato.
               </p>
             </div>
