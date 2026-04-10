@@ -116,8 +116,9 @@ export default function Chat() {
           {/* Sources button */}
           <button
             onClick={() => setSourcesOpen(true)}
-            className="flex items-center gap-1.5 px-4 h-10 rounded-full
+            className="flex items-center gap-1.5 rounded-full
               border transition-colors flex-shrink-0"
+            style={{ padding: '0 16px', height: '40px' }}
             style={{
               backgroundColor: candidate.colorLight,
               borderColor: candidate.color + '30',
@@ -164,9 +165,10 @@ export default function Chat() {
                 <button
                   key={i}
                   onClick={() => sendMessage(q)}
-                  className="text-left text-[0.9rem] px-7 py-5 rounded-2xl bg-bg-card border border-border
+                  className="text-left text-[0.9rem] rounded-2xl bg-bg-card border border-border
                     hover:border-gold/50 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                     active:scale-[0.98] transition-all duration-200 text-navy-light"
+                  style={{ padding: '18px 24px' }}
                 >
                   {q}
                 </button>
@@ -253,11 +255,11 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Escribe tu pregunta..."
             disabled={loading}
-            className="flex-1 bg-bg-card border border-border rounded-2xl py-3.5
-              pl-8 pr-5
+            className="flex-1 bg-bg-card border border-border rounded-2xl
               text-[0.9rem] text-navy placeholder-text-secondary/50
               focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all
               disabled:opacity-50"
+            style={{ paddingLeft: '20px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px' }}
           />
           <button
             type="submit"

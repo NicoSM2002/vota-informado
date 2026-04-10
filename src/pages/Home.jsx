@@ -18,10 +18,10 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="min-h-dvh pb-14 pt-14"
-      style={{ paddingLeft: '15px', paddingRight: '15px' }}
+      style={{ paddingLeft: '20px', paddingRight: '20px' }}
     >
       {/* Header */}
-      <header className="text-center mb-10" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
+      <header className="text-center mb-10">
         {colombianFlag}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ export default function Home() {
         <p className="text-[0.7rem] text-text-secondary leading-relaxed mt-1 opacity-70">
           Este proyecto no tiene afiliación política.
         </p>
-        <div className="mt-8">
+        <div style={{ marginTop: '40px' }}>
           <p className="text-[0.75rem] text-text-secondary leading-relaxed">
             Creado por: Juan Nicolás Saravia
           </p>
