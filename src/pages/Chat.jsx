@@ -22,10 +22,19 @@ export default function Chat() {
   const [loading, setLoading] = useState(false)
   const [sourcesOpen, setSourcesOpen] = useState(false)
   const messagesEndRef = useRef(null)
+  const lastMessageRef = useRef(null)
   const inputRef = useRef(null)
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messages.length === 0) return
+    const lastMsg = messages[messages.length - 1]
+    if (lastMsg.role === 'user') {
+      // User sent a message — scroll to bottom to see loading
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      // Assistant responded — scroll to the start of the response
+      lastMessageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }, [messages])
 
   if (!candidate) {
@@ -171,6 +180,7 @@ export default function Chat() {
             {messages.map((msg, i) => (
               <div
                 key={i}
+                ref={i === messages.length - 1 && msg.role === 'assistant' ? lastMessageRef : null}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.role === 'assistant' && (
