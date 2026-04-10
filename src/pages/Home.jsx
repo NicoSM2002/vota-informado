@@ -21,13 +21,13 @@ export default function Home() {
       style={{ paddingLeft: '15px', paddingRight: '15px' }}
     >
       {/* Header */}
-      <header className="text-center mb-10" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+      <header className="text-center mb-10" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
         {colombianFlag}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="font-heading text-[2.5rem] leading-[1.1] font-bold text-navy tracking-tight mb-4"
+          className="font-heading text-[2.5rem] leading-[1.1] font-bold text-navy tracking-tight mb-5"
         >
           Vota Informado
         </motion.h1>
@@ -37,7 +37,7 @@ export default function Home() {
           transition={{ delay: 0.25, duration: 0.5 }}
           className="text-text-secondary text-base leading-relaxed mx-auto"
         >
-          Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
+          Conoce a tu candidato,<br />infórmate y&nbsp;vota&nbsp;bien.
         </motion.p>
       </header>
 
@@ -78,11 +78,19 @@ export default function Home() {
       >
         <div className="h-px bg-border mb-5" />
         <p className="text-[0.75rem] text-text-secondary leading-relaxed">
-          Información basada en los planes de gobierno oficiales de cada candidato.
+          Información basada en los planes de gobierno<br />oficiales de cada candidato.
         </p>
         <p className="text-[0.7rem] text-text-secondary leading-relaxed mt-1 opacity-70">
           Este proyecto no tiene afiliación política.
         </p>
+        <div className="mt-4">
+          <p className="text-[0.75rem] text-text-secondary leading-relaxed">
+            Creado por: Juan Nicolás Saravia
+          </p>
+          <p className="text-[0.75rem] text-text-secondary leading-relaxed">
+            Correo: juansaravia2002@gmail.com
+          </p>
+        </div>
       </motion.footer>
     </motion.div>
   )

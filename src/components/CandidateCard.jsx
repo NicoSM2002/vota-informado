@@ -49,7 +49,7 @@ export default function CandidateCard({ candidate }) {
       {/* Arrow */}
       <div
         className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center
-          transition-all duration-300 group-hover:translate-x-0.5 ml-1"
+          transition-all duration-300 group-hover:translate-x-0.5 mr-2"
         style={{ backgroundColor: candidate.colorLight }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5">
