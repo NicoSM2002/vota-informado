@@ -111,6 +111,7 @@ app.post('/api/chat', async (req, res) => {
 - Sé respetuoso al referirte al otro candidato, sin atacar ni descalificar
 - Presenta similitudes Y diferencias en el tema preguntado
 - Usa formato comparativo (ej: "Mientras yo propongo X, ${otherNames} propone Y")
+- NUNCA uses tablas markdown. Usa listas o párrafos cortos para comparar.
 - Responde en máximo 200 palabras`
   }
 
