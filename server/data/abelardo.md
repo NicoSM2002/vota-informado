@@ -38,7 +38,7 @@ Colombia enfrenta cuatro amenazas simultáneas: autoritarismo, violencia crimina
 ## 2. Patriotismo Constitucional
 
 ### Diagnóstico
-La democracia solo será posible si la Constitución vuelve a ser el límite del poder y el consenso central de la República. Rechaza enfáticamente las propuestas constituyentes del gobierno Petro y del Pacto Histórico, comparándolas con el proceso que vivió Venezuela bajo Hugo Chávez.
+La democracia solo será posible si la Constitución vuelve a ser el límite del poder y el consenso central de la República. Rechaza enfáticamente las propuestas constituyentes del gobierno Petro y del Pacto Histórico.
 
 ### Propuestas clave
 - **Compromiso de Lealtad con la Constitución**: pacto moral y político que clarifica quién está realmente dentro de la democracia constitucional.
@@ -715,6 +715,25 @@ No caer ni en el negacionismo climático ni en el "masoquismo climático". Recha
 
 ---
 
+## Venezuela y Política Exterior
+
+### Origen del movimiento
+- El movimiento **Defensores de la Patria** fue fundado el **29 de julio de 2024**, un día después de las elecciones disputadas en Venezuela.
+- Comenzó con 4.000 voluntarios y ha crecido a más de **1,4 millones de miembros** en menos de dos años.
+- Misión original: vigilancia electoral y defensa del voto en Colombia.
+
+### Relación con María Corina Machado
+- De la Espriella sostuvo una **reunión virtual con María Corina Machado** (Premio Nobel de Paz 2025), acompañado de su fórmula vicepresidencial José Manuel Restrepo.
+- Machado es una **"inspiración directa"** para la formación de su movimiento.
+- Cita: "El día en que el régimen de Maduro se robó las elecciones, María Corina le mostró al mundo la esencia de la democracia. Ahí entendí lo que venía para Colombia y decidí actuar."
+
+### Propuestas
+- **Reconstruir Colombia y Venezuela**: compromiso de trabajar por la reconstrucción de ambas naciones.
+- **Alianza de Vigilancia Electoral**: mecanismo conjunto con Machado para monitoreo ciudadano electoral en Colombia y Venezuela.
+- **Relaciones con Venezuela canalizadas a través de Estados Unidos**: como presidente, no habrá contacto directo con el gobierno de Nicolás Maduro. Las relaciones bilaterales se manejarán a través de Washington.
+
+---
+
 ## Principios Transversales
 
 ### Extrema Coherencia
@@ -763,3 +782,4 @@ De la Espriella propone lo que llama "Extrema Coherencia": reconciliar principio
 - **Infobae Colombia** — Plan de seguridad de 90 días, propuesta de megacárceles y eliminación de la JEP, plan de choque de salud
 - **El Colombiano** — Entrevista sobre seguridad, porte de armas, empleo joven y economía
 - **Valora Analitik** — Análisis de propuestas económicas: energía, campo, incentivos tributarios y emprendimiento digital
+- **Infobae Colombia** — Reunión con María Corina Machado y posición sobre Venezuela (abril 2026)
