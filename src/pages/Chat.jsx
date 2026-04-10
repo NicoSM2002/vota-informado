@@ -248,8 +248,8 @@ export default function Chat() {
 
       {/* Input area */}
       <div
-        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl py-4"
-        style={{ paddingLeft: '20px', paddingRight: '20px', backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
+        className="flex-shrink-0 border-t border-border/60 py-4"
+        style={{ paddingLeft: '20px', paddingRight: '20px', backgroundColor: 'var(--color-bg)' }}
       >
         <form onSubmit={handleSubmit} className="flex gap-3">
           <input
@@ -258,11 +258,9 @@ export default function Chat() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Escribe tu pregunta..."
-            disabled={loading}
             className="flex-1 bg-bg-card border border-border rounded-2xl
               text-[0.9rem] text-navy placeholder-text-secondary/50
-              focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all
-              disabled:opacity-50"
+              focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all"
             style={{ paddingLeft: '20px', paddingRight: '16px', paddingTop: '14px', paddingBottom: '14px' }}
           />
           <button
