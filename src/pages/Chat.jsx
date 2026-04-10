@@ -116,25 +116,15 @@ export default function Chat() {
           {/* Sources button */}
           <button
             onClick={() => setSourcesOpen(true)}
-            className="flex items-center gap-1.5 rounded-full
+            className="flex items-center justify-center rounded-full
               border transition-colors flex-shrink-0"
             style={{
-              padding: '0 20px',
-              height: '44px',
+              padding: '0 14px',
+              height: '36px',
               backgroundColor: candidate.colorLight,
               borderColor: candidate.color + '30',
             }}
           >
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M3 2.5H6.5L8 4.5H13V12.5H3V2.5Z"
-                stroke={candidate.color}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path d="M6 8H10M6 10H9" stroke={candidate.color} strokeWidth="1.2" strokeLinecap="round" />
-            </svg>
             <span className="text-[0.7rem] font-semibold" style={{ color: candidate.color }}>
               Fuentes
             </span>
@@ -149,7 +139,7 @@ export default function Chat() {
             {/* Welcome */}
             <div
               className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg"
-              style={{ boxShadow: `0 4px 20px ${candidate.color}25`, marginTop: '6px', marginBottom: '10px' }}
+              style={{ boxShadow: `0 4px 20px ${candidate.color}25`, marginTop: '20px', marginBottom: '10px' }}
             >
               <img src={candidate.photo} alt={candidate.name} className="w-full h-full object-cover" />
             </div>
