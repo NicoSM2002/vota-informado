@@ -18,6 +18,36 @@ const candidateNames = {
   sergio: 'Sergio Fajardo',
 }
 
+// Name variants for comparison detection
+const nameVariants = {
+  'abelardo': 'abelardo', 'espriella': 'abelardo', 'de la espriella': 'abelardo',
+  'claudia': 'claudia', 'lopez': 'claudia',
+  'ivan': 'ivan', 'cepeda': 'ivan',
+  'paloma': 'paloma', 'valencia': 'paloma',
+  'sergio': 'sergio', 'fajardo': 'sergio',
+}
+
+function normalizeText(str) {
+  return str.toLowerCase()
+    .replace(/[áà]/g, 'a').replace(/[éè]/g, 'e').replace(/[íì]/g, 'i')
+    .replace(/[óò]/g, 'o').replace(/[úù]/g, 'u').replace(/ñ/g, 'n')
+}
+
+function detectComparisonCandidates(text, currentCandidateId) {
+  const normalized = normalizeText(text)
+  const found = new Set()
+  // Check longer variants first to avoid partial matches
+  const sortedVariants = Object.keys(nameVariants).sort((a, b) => b.length - a.length)
+  for (const variant of sortedVariants) {
+    const regex = new RegExp(`\\b${variant}\\b`)
+    if (regex.test(normalized)) {
+      const id = nameVariants[variant]
+      if (id !== currentCandidateId) found.add(id)
+    }
+  }
+  return [...found].slice(0, 2)
+}
+
 // Load plans
 const plans = {}
 for (const [id, file] of Object.entries(planFiles)) {
@@ -77,13 +107,42 @@ A continuación está tu plan de gobierno completo:
 ${plan}
 ---`
 
+  // Detect comparison with other candidates
+  const latestMessage = messages[messages.length - 1]?.content || ''
+  const comparisonIds = detectComparisonCandidates(latestMessage, candidateId)
+  let maxTokens = 512
+
+  let comparisonSection = ''
+  if (comparisonIds.length > 0) {
+    maxTokens = 768
+    for (const compId of comparisonIds) {
+      const compPlan = plans[compId]
+      const compName = candidateNames[compId]
+      if (compPlan) {
+        comparisonSection += `\n\n--- PLAN DE GOBIERNO DE ${compName.toUpperCase()} (para comparación) ---\n${compPlan}\n---`
+      }
+    }
+    const otherNames = comparisonIds.map(id => candidateNames[id]).join(' y ')
+    comparisonSection += `\n\n--- MODO COMPARACIÓN ---
+El ciudadano te está preguntando cómo se comparan tus propuestas con las de ${otherNames}.
+Instrucciones adicionales para comparación:
+- Sigue respondiendo en primera persona como ${candidateName}
+- Referencia propuestas específicas de ${otherNames} usando su nombre
+- Sé respetuoso al referirte al otro candidato y sus propuestas, sin atacar ni descalificar
+- Presenta tanto las similitudes como las diferencias en el tema preguntado
+- Responde en máximo 200 palabras
+- Usa formato comparativo cuando sea apropiado (ej: "Mientras yo propongo X, ${otherNames} propone Y")`
+  }
+
+  const finalSystemPrompt = systemPrompt + comparisonSection
+
   try {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
     const response = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 512,
-      system: systemPrompt,
+      max_tokens: maxTokens,
+      system: finalSystemPrompt,
       messages: messages.map(m => ({ role: m.role, content: m.content })),
     })
 
