@@ -7,12 +7,14 @@ function App() {
   const location = useLocation()
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/chat/:candidateId" element={<Chat />} />
-      </Routes>
-    </AnimatePresence>
+    <div className="app-shell">
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat/:candidateId" element={<Chat />} />
+        </Routes>
+      </AnimatePresence>
+    </div>
   )
 }
 
