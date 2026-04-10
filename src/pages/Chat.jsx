@@ -80,6 +80,7 @@ export default function Chat() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    inputRef.current?.blur()
     sendMessage(input)
   }
 
