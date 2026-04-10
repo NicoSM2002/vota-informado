@@ -37,7 +37,7 @@ export default function Home() {
           transition={{ delay: 0.25, duration: 0.5 }}
           className="text-text-secondary text-base leading-relaxed mx-auto"
         >
-          Conoce a tu candidato,<br />infórmate y&nbsp;vota&nbsp;bien.
+          Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
         </motion.p>
       </header>
 
@@ -83,7 +83,7 @@ export default function Home() {
         <p className="text-[0.7rem] text-text-secondary leading-relaxed mt-1 opacity-70">
           Este proyecto no tiene afiliación política.
         </p>
-        <div className="mt-4">
+        <div className="mt-8">
           <p className="text-[0.75rem] text-text-secondary leading-relaxed">
             Creado por: Juan Nicolás Saravia
           </p>

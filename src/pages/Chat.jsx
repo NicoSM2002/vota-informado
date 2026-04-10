@@ -87,7 +87,7 @@ export default function Chat() {
         className="sticky top-0 z-30 backdrop-blur-xl border-b border-border/60"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)' }}
       >
-        <div className="flex items-center gap-3 py-4" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
+        <div className="flex items-center gap-3 py-4" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
@@ -141,7 +141,7 @@ export default function Chat() {
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto py-6" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
+      <div className="flex-1 overflow-y-auto py-6" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
@@ -243,7 +243,7 @@ export default function Chat() {
       {/* Input area */}
       <div
         className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl py-4"
-        style={{ paddingLeft: '15px', paddingRight: '15px', backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
+        style={{ paddingLeft: '20px', paddingRight: '20px', backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
       >
         <form onSubmit={handleSubmit} className="flex gap-3">
           <input
@@ -253,7 +253,8 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Escribe tu pregunta..."
             disabled={loading}
-            className="flex-1 bg-bg-card border border-border rounded-2xl px-7 py-3.5
+            className="flex-1 bg-bg-card border border-border rounded-2xl py-3.5
+              pl-8 pr-5
               text-[0.9rem] text-navy placeholder-text-secondary/50
               focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all
               disabled:opacity-50"
