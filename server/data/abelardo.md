@@ -1,6 +1,7 @@
 # Plan de Gobierno - Abelardo De la Espriella
 
 **Candidato Presidencial 2026-2030**
+**Fórmula Vicepresidencial: José Manuel Restrepo** (perfil técnico-económico)
 **Movimiento: Defensores de la Patria**
 **Lema: "Firmes por la Patria"**
 **Eslogan central: "La Patria Milagro"**
@@ -11,7 +12,9 @@
 
 Abelardo De la Espriella propone lo que llama "La Patria Milagro": un proyecto de restauración nacional fundamentado en la defensa de la Constitución de 1991, la erradicación del crimen y la corrupción, y el rescate de las instituciones. Su campaña se define como "el milagro de los nunca": los que nunca se han robado un peso de la plata pública, los que nunca han hecho politiquería, los que nunca han traicionado al pueblo.
 
-Propone gobernar los cuatro años desde cada uno de los 32 departamentos de Colombia, sin salir del país, rotando con un puesto de mando unificado. Se compromete a retirarse de la vida pública al finalizar su mandato. Su primera meta son los 100 días iniciales del gobierno para ratificar resultados concretos.
+Propone gobernar los cuatro años desde cada uno de los 32 departamentos de Colombia, sin salir del país, rotando con un puesto de mando unificado. Se compromete a retirarse de la vida pública al finalizar su mandato y a renunciar al salario presidencial. Su primera meta son los primeros 90 días de gobierno para ratificar resultados concretos, con más de 90 decretos ejecutivos sobre seguridad, educación y economía desde el día uno.
+
+Se autodefine como "un soldado de la democracia, un gladiador del Estado de derecho y de la ley" y como el primer verdadero "outsider" de la política colombiana, sin estructuras partidistas tradicionales.
 
 Su enfoque se organiza en **13 propuestas principales** y **pilares fundacionales** que abarcan todos los aspectos del gobierno.
 
@@ -73,12 +76,22 @@ El crimen es el principal enemigo de la libertad, la paz verdadera y la estabili
 - Restablecer el compromiso de lealtad del Presidente con la Fuerza Pública. El Presidente será el primer defensor político y moral de soldados y policías.
 - Reconstruir la moral, mando, capacidad, prestigio y claridad de misión de las Fuerzas Armadas y la Policía.
 - Fortalecer la capacidad humana, técnica, informática, presupuestal y tecnológica.
+- Aumentar el pie de fuerza policial y proveer armamento de primera generación.
+- Más garantías operativas para militares y policías.
+- Retomar alianzas estratégicas con **Estados Unidos e Israel** para inteligencia militar, tecnología y cooperación.
 
 #### Recuperación del control territorial
 - Estrategia focalizada, sostenida y secuencial: recuperación, consolidación y permanencia institucional.
 - Crear comandos conjuntos operacionales en regiones decisivas.
-- Reafirmar el monopolio estatal de las armas.
+- Implementación de **Puestos de Mando Unificado (PMU)** en todos los departamentos.
 - Desmontar milicias y poderes coercitivos paralelos.
+- **Bombardeo directo** de campamentos narcoterroristas con criterios de precisión.
+- Desplegar Ejército en áreas urbanas de ciudades críticas.
+
+#### Porte de armas civiles
+- Propone legalizar la portación de armas para ciudadanos responsables.
+- Argumento: "Un arma no solamente es para defenderse, es para disuadir."
+- Señala que el 99,9% de los crímenes con armas involucra armas ilegales; civiles armados disuaden a criminales.
 
 #### Lucha contra la extorsión y el secuestro
 - **Bloque de Búsqueda contra la Extorsión**: ofensiva nacional contra la extorsión y el "gota a gota".
@@ -87,8 +100,9 @@ El crimen es el principal enemigo de la libertad, la paz verdadera y la estabili
 
 #### Lucha contra el narcotráfico
 - Destruir las 330.000 hectáreas de coca usando todas las herramientas legales y tecnológicas.
-- **Fumigación aérea con bioherbicidas** desde el primer día de gobierno (sin riesgo para salud humana ni medio ambiente).
+- **Fumigación aérea con bioherbicidas** (no glifosato) desde el primer día de gobierno (sin riesgo para salud humana ni medio ambiente).
 - Erradicación manual, persecución de capitales narcos, extinción de dominio exprés, sustitución y extradición.
+- El narcotráfico es "la fuente primigenia de todas las formas de violencia".
 - Destrucción sistemática de laboratorios.
 - Sustitución productiva real con infraestructura, crédito y formalización.
 
@@ -107,10 +121,11 @@ El crimen es el principal enemigo de la libertad, la paz verdadera y la estabili
 - Modernización de inteligencia estratégica y ciberdefensa.
 
 #### Sistema carcelario
-- Construir **10 cárceles aisladas**, sin señal de comunicaciones.
-- Financiación con participación del sector privado (concesiones).
+- Construir **10 megacárceles** en zonas remotas, sin señal de comunicaciones, ubicadas donde "ni las señales de la Cruz Roja llegan" para impedir operaciones de extorsión desde adentro.
+- Financiación con participación del sector privado mediante **concesiones de 80 años**.
 - Crear un nuevo **Cuerpo Nacional de Prisión** (sustituyendo al INPEC) integrado por veteranos y reservistas adscritos al Ejército Nacional.
 - El Estado conserva el monopolio de la fuerza y custodia armada.
+- Las cárceles actuales son "universidades del crimen" — el **75% de la extorsión en Colombia se origina desde las cárceles**.
 
 #### Microtráfico
 - Recuperar parques, colegios, esquinas y espacios públicos.
@@ -122,7 +137,14 @@ El crimen es el principal enemigo de la libertad, la paz verdadera y la estabili
 - Lanzamiento de ofensiva contra extorsión y secuestro.
 - Plan de recuperación carcelaria.
 - Fumigaciones aéreas con bioherbicidas desde el día uno.
-- Exigir a generales victorias concretas sobre **10 blancos de alto valor** en los primeros 90 días.
+- **Matar o capturar a 10 grandes cabecillas del narcoterrorismo** en los primeros 90 días, incluyendo bandas de extorsión y "gota a gota".
+- Redes de inteligencia comunitaria con informantes ciudadanos.
+- Presencia policial a nivel de calle en barrios, parques y pueblos.
+
+#### Eliminación de la JEP
+- Propone **eliminar la JEP** (Jurisdicción Especial para la Paz).
+- Costo actual de la JEP: **1,2 billones de pesos anuales**.
+- La describe como "una junta política para perseguir héroes nacionales" mientras protege a guerrilleros autores de crímenes de lesa humanidad.
 
 ---
 
@@ -180,11 +202,14 @@ Colombia vive una crisis humanitaria en salud provocada por la destrucción ideo
 ### Propuestas clave
 
 #### Plan de Salvamento de 90 días
-- **Inyección inmediata de $10 billones** para detener la hemorragia financiera y asistencial.
+- **Inyección inmediata de $10 billones** (~USD 2.700 millones) para detener la hemorragia financiera y asistencial. "Con 10 billones de pesos yo puedo estabilizar el sistema en los primeros 90 días."
+- **Fuentes de financiación**: Adres (administradora de recursos de salud), Presupuesto General de la Nación y emisión de bonos.
 - Liquidez para pagar nóminas atrasadas y cartera vencida.
 - Recursos urgentes para medicamentos represados y tratamientos interrumpidos.
 - Atención prioritaria a pacientes con cáncer, enfermedad renal, VIH, enfermedades huérfanas y alto costo.
 - Restauración del flujo financiero de UPC y Presupuestos Máximos.
+- **Mecanismo de resolución de deuda**: reunir prestadores, aseguradores, usuarios, médicos y entidades del Estado para lograr un cierre y liquidación de la deuda. "Sin ese paso no es posible avanzar."
+- Filosofía: **"Estabilizar antes de reformar"** — primero estabilizar el sistema, luego transformarlo.
 
 #### Medicamentos
 - **Cero pacientes sin medicamentos formulados**.
@@ -226,6 +251,12 @@ Colombia vive una crisis humanitaria en salud provocada por la destrucción ideo
 - **Unidad Familiar de Salud (UFS)**: pasar del modelo reactivo al preventivo y predictivo basado en el hogar.
 - Georreferenciar hogares, planes preventivos familiares.
 - Fortalecer medicina en atención primaria, promoción y prevención.
+- Estrategia de prevención a largo plazo (Política de Estado, no de gobierno): deportes y actividad física para niños y jóvenes, nutrición saludable y cultura alimentaria desde la infancia. Meta: evitar que las nuevas generaciones se conviertan en pacientes crónicos.
+
+#### Seguridad vial y motos
+- Solo el 20% de los 12,5 millones de motocicletas en Colombia tiene SOAT.
+- Propuesta: seguros más baratos para ampliar cobertura.
+- Creación de **"moto-rutas"** en vías existentes para organizar el tráfico y reducir accidentes de motociclistas.
 
 #### Topes y eficiencia
 - Topes máximos a costos de administración de EPS.
@@ -251,10 +282,10 @@ Colombia no es un país pobre, sino empobrecido por la corrupción, la violencia
 - **Meta de crecimiento del 7% anual** sostenido (como Corea del Sur y Singapur).
 - **Plan Cosecha Solidaria** para matar el hambre como primer objetivo.
 - Ordenar las finanzas públicas.
-- **Programa de ajuste fiscal**: reducir el tamaño del Estado hasta en una cuarta parte (aprovechando nueva ley de SGP).
+- **Programa de ajuste fiscal**: reducir la estructura del Estado en un **40%**, identificando más de **700.000 cargos y contratos** excedentes. La empresa privada debe crear empleo de transición para trabajadores públicos desplazados. Ahorro potencial anual de **80 billones de pesos** entre reducción del Estado y lucha anticorrupción.
 - Lograr **superávit fiscal primario** (ajuste inicial de ~$70 billones).
 - Fortalecer el comité autónomo de regla fiscal con más capacidad de control.
-- **Reducir carga tributaria**, reducir costos de energía.
+- **Reducir carga tributaria**: eliminar el **cuatro por mil** y los **impuestos a la gasolina**. Reducir costos de energía.
 - **Gran Revolución de DesRegulación**: eliminar trámites, trabas y cargas al sector empresarial.
   - Revisión de Invima, ICA, superintendencias, cámaras de comercio, notariado, licencias ambientales, reglamentos técnicos.
   - Política **"Una entra y dos salen"**: por cada nueva regulación, se eliminan dos.
@@ -263,6 +294,19 @@ Colombia no es un país pobre, sino empobrecido por la corrupción, la violencia
 - Industria 4.0.
 - **Programa "País de Propietarios"**: vivienda propia con intereses de **2% a 30 años**.
 - Meta: llevar a Colombia al grupo de los **25 países más prósperos, seguros y democráticos del mundo**.
+- Plan **"Colombia Exportadora y Soberanía Económica"**: convertir crecimiento en estabilidad social, con ciudadanos como "accionistas productivos".
+- Impulsar navegabilidad del **río Magdalena** y corredores logísticos seguros.
+
+#### Emprendimiento y Economía Digital
+- Régimen especial para pequeños empresarios y creadores de contenido.
+- **Exenciones tributarias y declaraciones de renta simplificadas** para quienes facturen hasta **$400 millones anuales**.
+- **Deducciones del 100%** en inversiones en tecnología y capacitación.
+- Acceso a créditos de hasta **$150 millones a tasa cero** para equipos tecnológicos.
+- Infraestructura de apoyo: coworking, mentorías, redes de conexión empresarial.
+
+#### Auditoría al tomar posesión
+- Realizar una auditoría externa integral al Estado al tomar posesión ("corte de cuentas").
+- Identificar qué se robaron, cuánto y quiénes son los responsables para remitir a la justicia.
 
 ---
 
@@ -304,13 +348,36 @@ El sector minero-energético no puede seguir siendo tratado con prejuicios ideol
 - Tras perder la autosuficiencia en diciembre de 2024, se importó cerca del 17% de la demanda total.
 
 ### Propuestas clave
+
+#### Primeros 90 días - Emergencia energética
+- **Declarar emergencia energética en los primeros 90 días de gobierno**.
+- Reactivar rondas de exploración de hidrocarburos a corto plazo.
+- Monitoreo diario del sistema energético desde la Presidencia.
+
+#### Hidrocarburos y Ecopetrol
 - Recuperar exploración y producción de petróleo y gas con seguridad jurídica y criterio técnico.
-- Fortalecer la **autosuficiencia energética**.
+- Fortalecer la **autosuficiencia energética** con meta de reposición de reservas superior al **120%**.
+- **"Despolitizar" Ecopetrol**: nombramiento de dirección técnica; regreso con fuerza a los mercados. Defender a Ecopetrol como activo estratégico de la Nación.
+- Reactivar **pilotos de fracking** bajo monitoreo técnico estricto.
 - Tratar el **gas como asunto estratégico**: acelerar campos descubiertos, proyectos costa afuera, evaluar yacimientos no convencionales.
+- Precios de gasolina y ACPM definidos con criterios técnicos, no políticos.
+
+#### Reforma regulatoria
+- Reforma profunda a las **leyes 142 y 143** para modificar funcionamiento de la **CREG**: comisionados con períodos fijos y criterios técnicos.
+- Agilización del licenciamiento ambiental para proyectos estratégicos.
+
+#### Plan Caribe
 - Transformar el sistema eléctrico de la **Costa Caribe**.
-- **Defender a Ecopetrol** como activo estratégico de la Nación.
+- Pago de deudas del Estado con la región para reducir tarifas de energía.
+- Redirigir regalías (que en 2024 alcanzaron **cerca de $18 billones**) hacia agua, vías y educación.
+- Control ciudadano mediante herramientas digitales.
+
+#### Minería
 - Desarrollar minerías de oro, cobre, plata y tierras raras con sentido de bien público.
 - Diferenciar claramente entre minería legal y minería criminal, respaldando la inversión formal y formalizando al pequeño minero.
+- Ofensiva contra minería ilegal con formalización masiva de pequeños mineros.
+
+#### Nuevas energías
 - Energía nuclear con licenciamientos exprés.
 - Energías renovables y nuevas energías.
 
@@ -477,6 +544,10 @@ El campo colombiano está abandonado y sin condiciones mínimas de seguridad, pr
 
 #### Crédito
 - Revolución del crédito rural: créditos de **15 a 20 años**.
+- Modernizar sistema de crédito agropecuario mediante cambios en la **Comisión Nacional de Crédito Agropecuario (CNCA)**.
+- Créditos con tasas del **8,7% anual**, plazos competitivos y **garantías estatales de hasta el 80%**.
+- Simplificar procesos de **Finagro** y digitalizar el acceso al crédito.
+- Ampliar inversión en **Títulos de Desarrollo Agropecuario**.
 - Garantías del FAG y FNG, reducción de tasas de interés.
 - Exenciones tributarias durante maduración de cultivos.
 - Contratos forward para proteger precios.
@@ -486,9 +557,13 @@ El campo colombiano está abandonado y sin condiciones mínimas de seguridad, pr
 - Gran blindaje jurídico de la propiedad rural: formalización masiva.
 - Atención directa a cerca de 3 millones de campesinos y familias.
 
-#### Formación
+#### Formación y ciencia agro
 - **700 Escuelas de Emprendimiento Rural** para 100.000 jóvenes.
 - Centros gratuitos de acceso a Internet en municipios y veredas.
+- Programa de formación rural con el **SENA**: piloto en **50 municipios de menos de 30.000 habitantes** para formar nuevos agricultores.
+- Fortalecer base científica del agro con centros de investigación gremial (CENI) y **Agrosavia**: mejoramiento genético, biotecnología, semillas elite, agricultura de precisión.
+- Combatir hambre: alianzas entre agricultores y sector privado con **beneficios tributarios** para empresas participantes.
+- Zonificación productiva obligatoria basada en el **Mapa Nacional de Zonificación Agrícola, Pecuaria y Forestal** liderado por la **UPRA**: definir qué producir, dónde y cuándo.
 
 #### Seguridad rural
 - Presencia permanente de Fuerza Pública en veredas y corregimientos.
@@ -658,10 +733,13 @@ De la Espriella propone lo que llama "Extrema Coherencia": reconciliar principio
 - Rechaza categóricamente la "Paz Total" del gobierno Petro, calificándola como "traición a la Patria" y no como paz fracasada.
 - Posición: **"Con los criminales no habrá negociación."**
 - Denuncia el "Pacto de la Picota" como asociación del gobierno con grupos criminales (ELN, FARC, Clan del Golfo).
+- La "Paz Total" será reemplazada por una estrategia de confrontación directa.
 
 ---
 
 ## Fuentes consultadas
+
+### Fuentes oficiales
 - PDF: "Primeras 13 propuestas para reconstruir la Patria Milagro" (PROPUESTAS-DEL-TIGRE.pdf)
 - PDF: "Pilares Fundacionales" (PILARES-FUNDACIONALES.pdf)
 - Sitio web: defensoresdelapatria.com
@@ -679,3 +757,9 @@ De la Espriella propone lo que llama "Extrema Coherencia": reconciliar principio
   - El Milagro de la Cultura
   - El Milagro de Proteger el Medio Ambiente
   - El Milagro del Bienestar Animal Integral
+
+### Medios de comunicación
+- **El Tiempo** — Desglose oficial de las 13 propuestas de campaña y entrevista a fondo sobre salud
+- **Infobae Colombia** — Plan de seguridad de 90 días, propuesta de megacárceles y eliminación de la JEP, plan de choque de salud
+- **El Colombiano** — Entrevista sobre seguridad, porte de armas, empleo joven y economía
+- **Valora Analitik** — Análisis de propuestas económicas: energía, campo, incentivos tributarios y emprendimiento digital
