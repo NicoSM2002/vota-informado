@@ -31,7 +31,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
 
-            <div className="px-4 pb-10">
+            <div className="pb-10" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -42,7 +42,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
                 </div>
                 <button
                   onClick={onClose}
-                  className="w-11 h-11 rounded-full bg-bg flex items-center justify-center
+                  className="w-9 h-9 rounded-full bg-bg flex items-center justify-center
                     hover:bg-border transition-colors"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -91,7 +91,7 @@ export default function SourcesPanel({ isOpen, onClose, candidate }) {
               </div>
 
               {/* Disclaimer */}
-              <p className="text-xs text-text-secondary text-center mt-8 leading-relaxed opacity-70">
+              <p className="text-[0.7rem] text-text-secondary text-center mt-8 leading-relaxed opacity-70">
                 Las respuestas se generan a partir de los planes de gobierno oficiales publicados por cada candidato.
               </p>
             </div>

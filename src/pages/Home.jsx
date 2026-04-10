@@ -17,10 +17,11 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh px-4 pb-14 pt-14"
+      className="min-h-dvh pb-14 pt-14"
+      style={{ paddingLeft: '15px', paddingRight: '15px' }}
     >
       {/* Header */}
-      <header className="text-center mb-10">
+      <header className="text-center mb-10" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
         {colombianFlag}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -48,7 +49,7 @@ export default function Home() {
         className="flex items-center gap-3 mb-8 px-1"
       >
         <div className="h-px flex-1 bg-border" />
-        <span className="text-xs uppercase tracking-[0.2em] text-text-secondary font-semibold whitespace-nowrap">
+        <span className="text-[0.7rem] uppercase tracking-[0.2em] text-text-secondary font-semibold whitespace-nowrap">
           Candidatos 2026
         </span>
         <div className="h-px flex-1 bg-border" />
@@ -61,7 +62,7 @@ export default function Home() {
             key={candidate.id}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + i * 0.05, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ delay: 0.3 + i * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <CandidateCard candidate={candidate} />
           </motion.div>
@@ -79,7 +80,7 @@ export default function Home() {
         <p className="text-[0.75rem] text-text-secondary leading-relaxed">
           Información basada en los planes de gobierno oficiales de cada candidato.
         </p>
-        <p className="text-xs text-text-secondary leading-relaxed mt-1 opacity-70">
+        <p className="text-[0.7rem] text-text-secondary leading-relaxed mt-1 opacity-70">
           Este proyecto no tiene afiliación política.
         </p>
       </motion.footer>

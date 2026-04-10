@@ -87,11 +87,11 @@ export default function Chat() {
         className="sticky top-0 z-30 backdrop-blur-xl border-b border-border/60"
         style={{ backgroundColor: 'rgba(245, 240, 232, 0.85)' }}
       >
-        <div className="flex items-center gap-3 px-4 py-4">
+        <div className="flex items-center gap-3 py-4" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
-            className="w-11 h-11 rounded-full bg-bg-card border border-border flex items-center justify-center
+            className="w-10 h-10 rounded-full bg-bg-card border border-border flex items-center justify-center
               hover:bg-border/50 transition-colors flex-shrink-0"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -109,7 +109,7 @@ export default function Chat() {
             </div>
             <div className="min-w-0">
               <h2 className="font-heading text-[0.9rem] font-bold text-navy truncate">{candidate.name}</h2>
-              <p className="text-xs text-text-secondary truncate">{candidate.party}</p>
+              <p className="text-[0.7rem] text-text-secondary truncate">{candidate.party}</p>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ export default function Chat() {
               />
               <path d="M6 8H10M6 10H9" stroke={candidate.color} strokeWidth="1.2" strokeLinecap="round" />
             </svg>
-            <span className="text-xs font-semibold" style={{ color: candidate.color }}>
+            <span className="text-[0.7rem] font-semibold" style={{ color: candidate.color }}>
               Fuentes
             </span>
           </button>
@@ -141,7 +141,7 @@ export default function Chat() {
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto px-4 py-6">
+      <div className="flex-1 overflow-y-auto py-6" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
@@ -189,7 +189,7 @@ export default function Chat() {
                   </div>
                 )}
                 <div
-                  className={`max-w-[80%] px-4 py-3 text-[0.9rem] leading-relaxed ${
+                  className={`max-w-[80%] px-4 py-3 text-[0.875rem] leading-relaxed ${
                     msg.role === 'user'
                       ? 'rounded-2xl rounded-br-md text-white'
                       : 'rounded-2xl rounded-bl-md bg-bg-card border border-border/60 text-navy-light'
@@ -242,8 +242,8 @@ export default function Chat() {
 
       {/* Input area */}
       <div
-        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl px-4 py-4"
-        style={{ backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
+        className="sticky bottom-0 border-t border-border/60 backdrop-blur-xl py-4"
+        style={{ paddingLeft: '15px', paddingRight: '15px', backgroundColor: 'rgba(245, 240, 232, 0.9)' }}
       >
         <form onSubmit={handleSubmit} className="flex gap-3">
           <input

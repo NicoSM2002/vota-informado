@@ -7,10 +7,10 @@ export default function CandidateCard({ candidate }) {
     <button
       onClick={() => navigate(`/chat/${candidate.id}`)}
       className="group w-full bg-bg-card rounded-2xl border border-border
-        overflow-hidden flex items-center gap-4 px-5 py-4
+        overflow-hidden flex items-center gap-4 p-4
         shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]
         hover:shadow-[0_2px_8px_rgba(0,0,0,0.08),0_8px_24px_rgba(0,0,0,0.06)]
-        active:scale-[0.98] transition-all duration-200 cursor-pointer text-left"
+        active:scale-[0.98] transition-all duration-300 cursor-pointer text-left"
     >
       {/* Photo */}
       <div
@@ -48,11 +48,11 @@ export default function CandidateCard({ candidate }) {
 
       {/* Arrow */}
       <div
-        className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center
+        className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center
           transition-all duration-300 group-hover:translate-x-0.5 ml-1"
         style={{ backgroundColor: candidate.colorLight }}
       >
-        <svg width="16" height="16" viewBox="0 0 14 14" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5">
           <path
             d="M5.25 3.5L8.75 7L5.25 10.5"
             stroke={candidate.color}
