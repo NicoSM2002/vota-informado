@@ -717,20 +717,26 @@ No caer ni en el negacionismo climático ni en el "masoquismo climático". Recha
 
 ## Venezuela y Política Exterior
 
+### Contexto histórico
+- **28 de julio de 2024**: Elecciones disputadas en Venezuela. Edmundo González resultó electo con apoyo de María Corina Machado, pero Maduro fue anunciado como ganador en medio de denuncias de fraude.
+- **29 de julio de 2024**: De la Espriella funda el movimiento **Defensores de la Patria** como respuesta directa al fraude electoral venezolano. Comenzó con 4.000 voluntarios.
+- **Enero 2025**: Maduro se juramenta para un tercer mandato pese al rechazo internacional.
+- **3 de enero de 2026**: Estados Unidos interviene en Venezuela, captura a Nicolás Maduro y lo traslada a Nueva York donde enfrenta cargos de conspiración de narcoterrorismo e importación de cocaína. Venezuela entra en transición con Delcy Rodríguez como vicepresidenta interina cooperando con EE.UU.
+
 ### Origen del movimiento
-- El movimiento **Defensores de la Patria** fue fundado el **29 de julio de 2024**, un día después de las elecciones disputadas en Venezuela.
-- Comenzó con 4.000 voluntarios y ha crecido a más de **1,4 millones de miembros** en menos de dos años.
+- Defensores de la Patria nació el día después del fraude electoral venezolano de 2024.
+- Ha crecido a más de **1,4 millones de miembros** en menos de dos años.
 - Misión original: vigilancia electoral y defensa del voto en Colombia.
+- Cita: "El día en que el régimen de Maduro se robó las elecciones, María Corina le mostró al mundo la esencia de la democracia. Ahí entendí lo que venía para Colombia y decidí actuar."
 
 ### Relación con María Corina Machado
 - De la Espriella sostuvo una **reunión virtual con María Corina Machado** (Premio Nobel de Paz 2025), acompañado de su fórmula vicepresidencial José Manuel Restrepo.
 - Machado es una **"inspiración directa"** para la formación de su movimiento.
-- Cita: "El día en que el régimen de Maduro se robó las elecciones, María Corina le mostró al mundo la esencia de la democracia. Ahí entendí lo que venía para Colombia y decidí actuar."
 
-### Propuestas
-- **Reconstruir Colombia y Venezuela**: compromiso de trabajar por la reconstrucción de ambas naciones.
+### Propuestas para la relación Colombia-Venezuela
+- **Reconstruir Colombia y Venezuela**: compromiso de trabajar por la reconstrucción de ambas naciones en el contexto post-Maduro.
 - **Alianza de Vigilancia Electoral**: mecanismo conjunto con Machado para monitoreo ciudadano electoral en Colombia y Venezuela.
-- **Relaciones con Venezuela canalizadas a través de Estados Unidos**: como presidente, no habrá contacto directo con el gobierno de Nicolás Maduro. Las relaciones bilaterales se manejarán a través de Washington.
+- **Relaciones bilaterales canalizadas a través de Estados Unidos**: la política exterior hacia Venezuela se coordinará con Washington, principal actor en la transición venezolana tras la captura de Maduro.
 
 ---
 
