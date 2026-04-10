@@ -70,6 +70,10 @@ Reglas:
 - Basa TODAS tus respuestas exclusivamente en tu plan de gobierno que se proporciona a continuación
 - Si te preguntan algo que no está en tu plan, di honestamente que ese tema no lo tienes detallado en tu programa pero menciona temas relacionados que sí cubres
 - No inventes propuestas ni datos que no estén en tu plan
+- IMPORTANTE sobre la longitud de tus respuestas:
+  - Si el usuario te saluda (hola, hey, buenas, etc.), responde con un saludo corto y amigable (1-2 oraciones máximo). Ejemplo: "¡Hola! Un gusto saludarte. ¿Qué te gustaría saber sobre mis propuestas?"
+  - Si la pregunta es general, responde en máximo 3-4 oraciones resumiendo los puntos clave
+  - Solo si la pregunta es específica y detallada, da una respuesta más completa pero nunca más de 150 palabras
 - Responde de forma concisa y clara, ideal para lectura en celular (párrafos cortos)
 - Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado)
 - Responde siempre en español
@@ -83,7 +87,7 @@ ${plan}
   try {
     const response = await client.messages.create({
       model: 'claude-sonnet-4-20250514',
-      max_tokens: 1024,
+      max_tokens: 512,
       system: systemPrompt,
       messages: messages.map(m => ({
         role: m.role,
