@@ -87,22 +87,53 @@ app.post('/api/chat', async (req, res) => {
 
   const candidateName = candidateNames[candidateId]
 
-  const systemPrompt = `Eres ${candidateName}, candidato(a) presidencial de Colombia para las elecciones de 2026. Debes responder SIEMPRE en primera persona, como si fueras el/la candidato(a) hablando directamente al ciudadano que te pregunta.
+  // Detect comparison with other candidates
+  const latestMessage = messages[messages.length - 1]?.content || ''
+  const comparisonIds = detectComparisonCandidates(latestMessage, candidateId)
+  const isComparison = comparisonIds.length > 0
+  const maxTokens = isComparison ? 768 : 512
+
+  let comparisonPlans = ''
+  let comparisonInstructions = ''
+  if (isComparison) {
+    const otherNames = comparisonIds.map(id => candidateNames[id]).join(' y ')
+    for (const compId of comparisonIds) {
+      const compPlan = plans[compId]
+      const compName = candidateNames[compId]
+      if (compPlan) {
+        comparisonPlans += `\n\n--- PLAN DE GOBIERNO DE ${compName.toUpperCase()} (para comparación) ---\n${compPlan}\n---`
+      }
+    }
+    comparisonInstructions = `
+- IMPORTANTE: El ciudadano te está pidiendo que compares tus propuestas con las de ${otherNames}. Más abajo encontrarás el plan de gobierno de ${otherNames} para que puedas hacer una comparación informada.
+- Sigue respondiendo en primera persona como ${candidateName}
+- Referencia propuestas específicas de ${otherNames} usando su nombre
+- Sé respetuoso al referirte al otro candidato, sin atacar ni descalificar
+- Presenta similitudes Y diferencias en el tema preguntado
+- Usa formato comparativo (ej: "Mientras yo propongo X, ${otherNames} propone Y")
+- Responde en máximo 200 palabras`
+  }
+
+  const dataRule = isComparison
+    ? '- Basa tus respuestas en tu plan de gobierno Y en el plan del otro candidato que se proporcionan a continuación. Usa AMBOS planes para hacer comparaciones informadas y precisas.'
+    : '- Basa TODAS tus respuestas exclusivamente en tu plan de gobierno que se proporciona a continuación'
+
+  const finalSystemPrompt = `Eres ${candidateName}, candidato(a) presidencial de Colombia para las elecciones de 2026. Debes responder SIEMPRE en primera persona, como si fueras el/la candidato(a) hablando directamente al ciudadano que te pregunta.
 
 Tu tono debe ser:
-- Cercano y respetuoso, como si estuvieras en un conversación directa con un votante
+- Cercano y respetuoso, como si estuvieras en una conversación directa con un votante
 - Seguro y conocedor de tus propuestas
 - Apasionado pero mesurado
 - Usa "yo", "mi gobierno", "nosotros" en tus respuestas
 
 Reglas:
-- Basa TODAS tus respuestas exclusivamente en tu plan de gobierno que se proporciona a continuación
+${dataRule}
 - Si te preguntan algo que no está en tu plan, di honestamente que ese tema no lo tienes detallado en tu programa pero menciona temas relacionados que sí cubres
-- No inventes propuestas ni datos que no estén en tu plan
+- No inventes propuestas ni datos que no estén en los planes proporcionados${comparisonInstructions}
 - IMPORTANTE sobre la longitud de tus respuestas:
   - Si el usuario te saluda (hola, hey, buenas, etc.), responde con un saludo corto y amigable (1-2 oraciones máximo). Ejemplo: "¡Hola! Un gusto saludarte. ¿Qué te gustaría saber sobre mis propuestas?"
   - Si la pregunta es general, responde en máximo 3-4 oraciones resumiendo los puntos clave
-  - Solo si la pregunta es específica y detallada, da una respuesta más completa pero nunca más de 150 palabras
+  - Solo si la pregunta es específica y detallada, da una respuesta más completa pero nunca más de ${isComparison ? '200' : '150'} palabras
 - Responde de forma concisa y clara, ideal para lectura en celular (párrafos cortos)
 - Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado)
 - Responde siempre en español
@@ -111,36 +142,7 @@ A continuación está tu plan de gobierno completo:
 
 ---
 ${plan}
----`
-
-  // Detect comparison with other candidates
-  const latestMessage = messages[messages.length - 1]?.content || ''
-  const comparisonIds = detectComparisonCandidates(latestMessage, candidateId)
-  let maxTokens = 512
-
-  let comparisonSection = ''
-  if (comparisonIds.length > 0) {
-    maxTokens = 768
-    for (const compId of comparisonIds) {
-      const compPlan = plans[compId]
-      const compName = candidateNames[compId]
-      if (compPlan) {
-        comparisonSection += `\n\n--- PLAN DE GOBIERNO DE ${compName.toUpperCase()} (para comparación) ---\n${compPlan}\n---`
-      }
-    }
-    const otherNames = comparisonIds.map(id => candidateNames[id]).join(' y ')
-    comparisonSection += `\n\n--- MODO COMPARACIÓN ---
-El ciudadano te está preguntando cómo se comparan tus propuestas con las de ${otherNames}.
-Instrucciones adicionales para comparación:
-- Sigue respondiendo en primera persona como ${candidateName}
-- Referencia propuestas específicas de ${otherNames} usando su nombre
-- Sé respetuoso al referirte al otro candidato y sus propuestas, sin atacar ni descalificar
-- Presenta tanto las similitudes como las diferencias en el tema preguntado
-- Responde en máximo 200 palabras
-- Usa formato comparativo cuando sea apropiado (ej: "Mientras yo propongo X, ${otherNames} propone Y")`
-  }
-
-  const finalSystemPrompt = systemPrompt + comparisonSection
+---${comparisonPlans}`
 
   try {
     const response = await client.messages.create({
