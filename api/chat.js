@@ -1,6 +1,12 @@
 import Anthropic from '@anthropic-ai/sdk'
+import { createClient } from '@supabase/supabase-js'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+
+// Supabase client (fire-and-forget logging)
+const supabase = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_KEY
+  ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY)
+  : null
 
 const planFiles = {
   abelardo: 'abelardo.md',
@@ -138,6 +144,16 @@ A continuación está tu plan de gobierno completo:
 ---
 ${plan}
 ---${comparisonPlans}`
+
+  // Fire-and-forget: log question to Supabase (does NOT slow down response)
+  if (supabase) {
+    supabase.from('chat_logs').insert({
+      candidate_id: candidateId,
+      question: latestMessage,
+      is_comparison: isComparison,
+      compared_with: isComparison ? comparisonIds : null,
+    }).then(() => {}).catch(() => {})
+  }
 
   try {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
