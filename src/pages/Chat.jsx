@@ -80,7 +80,7 @@ export default function Chat() {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -30 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh flex flex-col bg-bg"
+      className="h-dvh flex flex-col bg-bg overflow-hidden"
     >
       {/* Header */}
       <header

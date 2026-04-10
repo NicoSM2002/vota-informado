@@ -33,17 +33,21 @@ html {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: manipulation;
+  touch-action: pan-x pan-y;
   -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overflow: hidden;
+  height: 100dvh;
 }
 
 body {
-  min-height: 100dvh;
-  overflow-x: hidden;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 #root {
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
 }
@@ -51,7 +55,8 @@ body {
 .app-shell {
   width: 100%;
   max-width: 430px;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
   position: relative;
   box-shadow: none;
 }
@@ -92,6 +97,10 @@ body::before {
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 2px;
+}
+
+input, textarea, select {
+  font-size: 16px !important;
 }
 
 input:focus, textarea:focus {

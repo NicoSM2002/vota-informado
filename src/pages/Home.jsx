@@ -17,7 +17,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-dvh pb-14 pt-14"
+      className="h-dvh overflow-y-auto pb-14 pt-14"
       style={{ paddingLeft: '20px', paddingRight: '20px' }}
     >
       {/* Header */}
