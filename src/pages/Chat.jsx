@@ -118,8 +118,9 @@ export default function Chat() {
             onClick={() => setSourcesOpen(true)}
             className="flex items-center gap-1.5 rounded-full
               border transition-colors flex-shrink-0"
-            style={{ padding: '0 16px', height: '40px' }}
             style={{
+              padding: '0 20px',
+              height: '44px',
               backgroundColor: candidate.colorLight,
               borderColor: candidate.color + '30',
             }}
@@ -147,15 +148,15 @@ export default function Chat() {
           <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
             <div
-              className="w-24 h-24 rounded-2xl overflow-hidden mb-6 shadow-lg"
-              style={{ boxShadow: `0 4px 20px ${candidate.color}25` }}
+              className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg"
+              style={{ boxShadow: `0 4px 20px ${candidate.color}25`, marginTop: '6px', marginBottom: '10px' }}
             >
               <img src={candidate.photo} alt={candidate.name} className="w-full h-full object-cover" />
             </div>
-            <h3 className="font-heading text-[1.3rem] font-bold text-navy mb-2">
+            <h3 style={{ marginBottom: '6px' }} className="font-heading text-[1.3rem] font-bold text-navy">
               Pregúntale a {candidate.name.split(' ')[0]}
             </h3>
-            <p className="text-[0.9rem] text-text-secondary text-center max-w-[280px] mb-10 leading-relaxed">
+            <p style={{ marginBottom: '10px' }} className="text-[0.9rem] text-text-secondary text-center max-w-[280px] leading-relaxed">
               Haz cualquier pregunta sobre sus propuestas y plan de gobierno
             </p>
 
@@ -168,7 +169,7 @@ export default function Chat() {
                   className="text-left text-[0.9rem] rounded-2xl bg-bg-card border border-border
                     hover:border-gold/50 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                     active:scale-[0.98] transition-all duration-200 text-navy-light"
-                  style={{ padding: '18px 24px' }}
+                  style={{ padding: '14px 20px' }}
                 >
                   {q}
                 </button>
