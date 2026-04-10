@@ -133,7 +133,7 @@ export default function Chat() {
       </header>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto py-6" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
+      <div className="flex-1 overflow-y-auto" style={{ padding: '15px 20px 24px 20px' }}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[55dvh]">
             {/* Welcome */}
@@ -182,12 +182,15 @@ export default function Chat() {
                   </div>
                 )}
                 <div
-                  className={`max-w-[80%] px-4 py-3 text-[0.875rem] leading-relaxed ${
+                  className={`max-w-[80%] text-[0.875rem] leading-relaxed ${
                     msg.role === 'user'
                       ? 'rounded-2xl rounded-br-md text-white'
                       : 'rounded-2xl rounded-bl-md bg-bg-card border border-border/60 text-navy-light'
                   }`}
-                  style={msg.role === 'user' ? { backgroundColor: candidate.color } : {}}
+                  style={msg.role === 'user'
+                    ? { backgroundColor: candidate.color, padding: '12px 18px' }
+                    : { padding: '12px 18px' }
+                  }
                 >
                   {msg.role === 'assistant' ? (
                     <div className="chat-markdown">
@@ -209,7 +212,7 @@ export default function Chat() {
                 >
                   <img src={candidate.photo} alt="" className="w-full h-full object-cover" />
                 </div>
-                <div className="bg-bg-card border border-border/60 rounded-2xl rounded-bl-md px-4 py-3">
+                <div className="bg-bg-card border border-border/60 rounded-2xl rounded-bl-md" style={{ padding: '12px 18px' }}>
                   <div className="flex gap-1.5 items-center h-5">
                     {[0, 1, 2].map(j => (
                       <div
