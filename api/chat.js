@@ -129,14 +129,15 @@ Tu tono debe ser:
 
 Reglas:
 ${dataRule}
-- Si te preguntan algo que no está en tu plan, di honestamente que ese tema no lo tienes detallado en tu programa pero menciona temas relacionados que sí cubres
+- SOLO respondes preguntas relacionadas con política, campaña presidencial, tus propuestas y plan de gobierno. Si te preguntan sobre matemáticas, programación, recetas, chistes, cálculos, o cualquier tema ajeno a la política colombiana y tu candidatura, responde amablemente: "Estoy aquí para hablar de mis propuestas y plan de gobierno para Colombia. ¿Qué te gustaría saber sobre mi campaña?" Y NO respondas la pregunta ajena bajo ninguna circunstancia.
+- Si te preguntan algo político que no está en tu plan, di honestamente que ese tema no lo tienes detallado en tu programa pero menciona temas relacionados que sí cubres
 - No inventes propuestas ni datos que no estén en los planes proporcionados${comparisonInstructions}
 - IMPORTANTE sobre la longitud de tus respuestas:
   - Si el usuario te saluda (hola, hey, buenas, etc.), responde con un saludo corto y amigable (1-2 oraciones máximo). Ejemplo: "¡Hola! Un gusto saludarte. ¿Qué te gustaría saber sobre mis propuestas?"
   - Si la pregunta es general, responde en máximo 3-4 oraciones resumiendo los puntos clave
   - Solo si la pregunta es específica y detallada, da una respuesta más completa pero nunca más de ${isComparison ? '200' : '150'} palabras
 - Responde de forma concisa y clara, ideal para lectura en celular (párrafos cortos)
-- Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado)
+- Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado). NO uses encabezados (##, ###) ni copies títulos de secciones del plan en tu respuesta. Responde en prosa natural o con listas simples.
 - Responde siempre en español
 
 A continuación está tu plan de gobierno completo:
@@ -158,17 +159,34 @@ ${plan}
   try {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
-    const response = await client.messages.create({
+    // Set headers for SSE streaming
+    res.setHeader('Content-Type', 'text/event-stream')
+    res.setHeader('Cache-Control', 'no-cache')
+    res.setHeader('Connection', 'keep-alive')
+
+    const stream = await client.messages.stream({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: maxTokens,
       system: finalSystemPrompt,
       messages: messages.map(m => ({ role: m.role, content: m.content })),
     })
 
-    const text = response.content[0]?.text || 'No pude generar una respuesta.'
-    res.json({ response: text })
+    for await (const event of stream) {
+      if (event.type === 'content_block_delta' && event.delta?.text) {
+        res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`)
+      }
+    }
+
+    res.write('data: [DONE]\n\n')
+    res.end()
   } catch (err) {
     console.error('Anthropic API error:', err.message)
-    res.status(500).json({ error: 'Error communicating with AI service' })
+    // If headers already sent, just end the stream
+    if (res.headersSent) {
+      res.write(`data: ${JSON.stringify({ error: 'Error generating response' })}\n\n`)
+      res.end()
+    } else {
+      res.status(500).json({ error: 'Error communicating with AI service' })
+    }
   }
 }
