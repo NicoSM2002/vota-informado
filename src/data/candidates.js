@@ -1,6 +1,8 @@
 export const candidates = [
   {
     id: 'abelardo',
+    shortName: 'De la Espriella',
+    partyShort: 'DP',
     name: 'Abelardo De la Espriella',
     party: 'Defensores de la Patria',
     slogan: 'La Patria Milagro',
@@ -15,6 +17,8 @@ export const candidates = [
   },
   {
     id: 'claudia',
+    shortName: 'López',
+    partyShort: 'IND',
     name: 'Claudia López',
     party: 'Independiente / Centro',
     slogan: 'Por una Colombia Justa',
@@ -28,6 +32,8 @@ export const candidates = [
   },
   {
     id: 'ivan',
+    shortName: 'Cepeda',
+    partyShort: 'PH',
     name: 'Iván Cepeda',
     party: 'Pacto Histórico',
     slogan: 'El Poder de la Verdad',
@@ -41,6 +47,8 @@ export const candidates = [
   },
   {
     id: 'paloma',
+    shortName: 'Valencia',
+    partyShort: 'CD',
     name: 'Paloma Valencia',
     party: 'Centro Democrático',
     slogan: 'Orden, Firmeza y Corazón',
@@ -60,6 +68,8 @@ export const candidates = [
   },
   {
     id: 'sergio',
+    shortName: 'Fajardo',
+    partyShort: 'IND',
     name: 'Sergio Fajardo',
     party: 'Independiente / Centro',
     slogan: 'Cambio. Serio. Seguro.',

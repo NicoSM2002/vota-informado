@@ -1,98 +1,230 @@
+import { useState, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { candidates } from '../data/candidates'
-import CandidateCard from '../components/CandidateCard'
+import CandidateCell from '../components/CandidateCell'
+import BallotMark from '../components/BallotMark'
+import FlagRule from '../components/FlagRule'
+import Sheet from '../components/Sheet'
 
-const colombianFlag = (
-  <div className="flex justify-center gap-1.5 mb-6">
-    <div className="w-8 h-1 rounded-full bg-[#FCD116]" />
-    <div className="w-8 h-1 rounded-full bg-[#003893]" />
-    <div className="w-8 h-1 rounded-full bg-[#CE1126]" />
-  </div>
-)
+const ease = [0.22, 1, 0.36, 1]
+
+const rise = (delay) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: 0.6, ease },
+})
+
+// Deterministic barcode bars for the ballot footer
+const barcode = [3, 1, 2, 1, 1, 3, 1, 2, 2, 1, 3, 1, 1, 2, 1, 3, 2, 1, 1, 2, 3, 1, 2, 1, 1, 3, 1, 1, 2, 2, 1, 3, 1, 2, 1, 1, 2, 3, 1, 2]
 
 export default function Home() {
+  const navigate = useNavigate()
+  const [marked, setMarked] = useState(null)
+  const [blankOpen, setBlankOpen] = useState(false)
+
+  const mark = (id) => {
+    if (marked) return
+    setMarked(id)
+    navigator.vibrate?.(12)
+    if (id === 'blanco') {
+      setTimeout(() => setBlankOpen(true), 520)
+    } else {
+      setTimeout(() => navigate(`/chat/${id}`), 640)
+    }
+  }
+
+  const closeBlank = useCallback(() => {
+    setBlankOpen(false)
+    setMarked(null)
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, y: -16, transition: { duration: 0.25 } }}
       transition={{ duration: 0.3 }}
-      className="h-dvh overflow-y-auto pb-14 pt-14"
-      style={{ paddingLeft: '20px', paddingRight: '20px' }}
+      className="relative h-dvh"
     >
-      {/* Header */}
-      <header className="text-center" style={{ marginBottom: '14px' }}>
-        {colombianFlag}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="font-heading text-[2.5rem] leading-[1.1] font-bold text-navy tracking-tight mb-5"
-        >
-          Vota Informado
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.5 }}
-          className="text-text-secondary text-base leading-relaxed mx-auto"
-        >
-          Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
-        </motion.p>
-      </header>
+      <div className="h-full overflow-y-auto">
+        {/* Ballot stub */}
+        <motion.div {...rise(0)} className="px-5 pt-[max(1rem,env(safe-area-inset-top))]">
+          <div className="flex items-center justify-between py-2">
+            <span className="label text-ink-mute">Tarjetón informativo</span>
+            <span className="label text-ink-mute">Nº 2026—0001</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="flex-shrink-0 text-ink-mute" aria-hidden="true">
+              <circle cx="6" cy="6" r="3" stroke="currentColor" strokeWidth="1.6" />
+              <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.6" />
+              <path d="M8.5 7.5L20 18M8.5 16.5L20 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+            <div className="perforation flex-1" />
+          </div>
+        </motion.div>
 
-      {/* Candidate label */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.35 }}
-        className="flex items-center gap-3 px-1"
-        style={{ marginBottom: '14px' }}
-      >
-        <div className="h-px flex-1 bg-border" />
-        <span className="text-[0.7rem] uppercase tracking-[0.2em] text-text-secondary font-semibold whitespace-nowrap">
-          Candidatos 2026
-        </span>
-        <div className="h-px flex-1 bg-border" />
-      </motion.div>
+        {/* Masthead */}
+        <header className="guilloche relative mt-4 px-5 pb-6 pt-5">
+          <motion.p {...rise(0.08)} className="label mb-3 text-ink-soft">
+            Elecciones presidenciales · Colombia 2026
+          </motion.p>
 
-      {/* Candidate Cards */}
-      <div className="flex flex-col gap-4">
-        {candidates.map((candidate, i) => (
-          <motion.div
-            key={candidate.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + i * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          {/* Sized to the container so "INFORMADO." always fits the width */}
+          <h1 className="condensed @container text-ink">
+            <span className="block text-[20.5cqw] font-black uppercase leading-[0.8] tracking-[-0.01em]">
+              <motion.span {...rise(0.14)} className="block">
+                Vota
+              </motion.span>
+              <motion.span {...rise(0.22)} className="block">
+                Informado<span className="text-mark">.</span>
+              </motion.span>
+            </span>
+          </h1>
+
+          <FlagRule height={7} delay={0.4} className="mt-5" />
+
+          <motion.p
+            {...rise(0.5)}
+            className="mt-4 font-serif text-[1.25rem] italic leading-snug text-ink-soft"
           >
-            <CandidateCard candidate={candidate} />
-          </motion.div>
-        ))}
+            Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
+          </motion.p>
+        </header>
+
+        {/* Instructions */}
+        <motion.div {...rise(0.58)} className="mx-5 mb-5 flex border-[1.5px] border-ink">
+          <div className="flex items-center bg-ink px-2.5">
+            <span className="label text-paper [writing-mode:vertical-rl] rotate-180">Instrucciones</span>
+          </div>
+          <p className="flex-1 px-3.5 py-3 text-[0.9rem] leading-snug text-ink-soft">
+            Marque con una <strong className="font-bold text-mark">X</strong> la casilla del candidato con quien quiere
+            conversar. Responde con base en su plan de gobierno oficial.
+          </p>
+        </motion.div>
+
+        {/* The ballot grid */}
+        <div className="mx-5 border-2 border-ink bg-ink">
+          <div className="grid grid-cols-2 gap-px">
+            {candidates.map((candidate, i) => (
+              <motion.div
+                key={candidate.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.66 + i * 0.07, duration: 0.55, ease }}
+                className="bg-paper-light"
+              >
+                <CandidateCell
+                  candidate={candidate}
+                  number={i + 1}
+                  marked={marked === candidate.id}
+                  dimmed={marked !== null && marked !== candidate.id}
+                  onMark={() => mark(candidate.id)}
+                />
+              </motion.div>
+            ))}
+
+            {/* Voto en blanco — every Colombian ballot has one */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.66 + candidates.length * 0.07, duration: 0.55, ease }}
+              className="bg-paper-light"
+            >
+              <motion.button
+                onClick={() => mark('blanco')}
+                whileTap={{ scale: 0.97 }}
+                animate={{ opacity: marked && marked !== 'blanco' ? 0.35 : 1 }}
+                aria-label="Qué es el voto en blanco"
+                className="relative flex h-full w-full flex-col p-3 text-left"
+              >
+                <div className="mb-2.5 flex items-center justify-between">
+                  <span className="font-mono text-[0.7rem] font-semibold text-ink">VB</span>
+                  <span className="flex h-[22px] w-[22px] items-center justify-center border border-ink font-mono text-[0.7rem]">
+                    ?
+                  </span>
+                </div>
+                <div className="relative flex aspect-[4/5] w-full items-center justify-center border border-dashed border-ink-mute">
+                  <span className="condensed text-center text-[1.6rem] font-extrabold uppercase leading-[0.9] text-ink">
+                    Voto
+                    <br />
+                    en blanco
+                  </span>
+                  {marked === 'blanco' && (
+                    <BallotMark className="absolute inset-[-6%] h-[112%] w-[112%]" strokeWidth={8} />
+                  )}
+                </div>
+                <p className="mt-2.5 flex-1 font-serif text-[0.85rem] italic leading-snug text-ink-soft">
+                  ¿Qué significa votar en blanco?
+                </p>
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <motion.footer {...rise(1.1)} className="relative px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-10">
+          <div
+            className="absolute right-6 top-6 rotate-[-8deg] border-2 border-mark px-2.5 py-1.5 text-mark opacity-80"
+            aria-hidden="true"
+          >
+            <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">No válido</p>
+            <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">como voto</p>
+          </div>
+
+          <p className="max-w-[230px] font-serif text-[0.95rem] leading-snug text-ink-soft">
+            Información basada en los planes de gobierno oficiales de cada candidato.
+          </p>
+          <p className="label mt-3 text-ink-mute">Sin afiliación política</p>
+
+          <div className="mt-8 h-[2px] bg-ink" />
+
+          <div className="mt-4 flex items-end justify-between gap-4">
+            <div>
+              <p className="label text-ink-mute">Creado por</p>
+              <p className="mt-1 text-[0.9rem] font-semibold text-ink">Juan Nicolás Saravia</p>
+              <a href="mailto:juansaravia2002@gmail.com" className="mt-0.5 block font-mono text-[0.7rem] text-ink-soft underline decoration-rule underline-offset-2">
+                juansaravia2002@gmail.com
+              </a>
+            </div>
+            <div className="flex h-9 items-stretch gap-[1.5px]" aria-hidden="true">
+              {barcode.map((w, i) => (
+                <div key={i} className={i % 2 ? 'bg-transparent' : 'bg-ink'} style={{ width: w }} />
+              ))}
+            </div>
+          </div>
+        </motion.footer>
       </div>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
-        className="mt-12 text-center"
-      >
-        <div className="h-px bg-border mb-5" />
-        <p className="text-[0.75rem] text-text-secondary leading-relaxed">
-          Información basada en los planes de gobierno<br />oficiales de cada candidato.
-        </p>
-        <p className="text-[0.7rem] text-text-secondary leading-relaxed mt-1 opacity-70">
-          Este proyecto no tiene afiliación política.
-        </p>
-        <div style={{ marginTop: '46px' }}>
-          <p className="text-[0.75rem] text-text-secondary leading-relaxed">
-            Creado por: Juan Nicolás Saravia
+      <Sheet isOpen={blankOpen} onClose={closeBlank} eyebrow="Casilla VB" title="Voto en blanco">
+        <div className="font-serif text-[1.05rem] leading-relaxed text-ink-soft">
+          <p>
+            Votar en blanco es una forma de participar <strong className="font-semibold text-ink">sin apoyar a ningún
+            candidato</strong>. Es una opción válida que aparece en todos los tarjetones.
           </p>
-          <p className="text-[0.75rem] text-text-secondary leading-relaxed">
-            Correo: juansaravia2002@gmail.com
-          </p>
+          <ul className="mt-5 flex flex-col gap-4 border-l-2 border-ink pl-4">
+            <li>
+              <p className="label mb-1 text-ink">Cuenta como voto válido</p>
+              No es lo mismo que un voto nulo (mal marcado) ni que la abstención (no ir a votar).
+            </li>
+            <li>
+              <p className="label mb-1 text-ink">Puede repetir la elección</p>
+              Si en la primera vuelta presidencial el voto en blanco obtiene la mayoría de los votos válidos, la votación
+              se repite una sola vez (artículo 258 de la Constitución).
+            </li>
+            <li>
+              <p className="label mb-1 text-ink">Es un mensaje</p>
+              Expresa inconformidad con las opciones disponibles, sin dejar de ejercer tu derecho.
+            </li>
+          </ul>
+          <button
+            onClick={closeBlank}
+            className="mt-7 w-full bg-ink py-3.5 font-display text-[0.95rem] font-semibold uppercase tracking-wide text-paper active:opacity-80"
+          >
+            Ver candidatos
+          </button>
         </div>
-      </motion.footer>
+      </Sheet>
     </motion.div>
   )
 }
