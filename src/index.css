@@ -5,6 +5,15 @@
   --font-serif: 'Newsreader', Georgia, serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
+  /* Type scale — keep to these steps; nothing below 12px */
+  --text-meta: 0.75rem;      /* 12px  mono labels, numbers, tags */
+  --text-small: 0.875rem;    /* 14px  secondary notes */
+  --text-body: 1rem;         /* 16px  UI text */
+  --text-read: 1.125rem;     /* 18px  reading: answers, questions */
+  --text-title: 1.5rem;      /* 24px  names, slogans, subtitles */
+  --text-display: 2.5rem;    /* 40px  section titles */
+  --text-headline: 4rem;     /* 64px  desktop headline */
+
   /* Tarjetón palette */
   --color-paper: #F3EFE6;
   --color-paper-deep: #E7E0D1;
@@ -50,6 +59,26 @@
   body {
     height: 100dvh;
     overflow: hidden;
+    /* App-like: no text caret or selection on UI text */
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+    cursor: text;
+  }
+
+  /* Content people may want to copy, without showing the text cursor */
+  .selectable {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  button:not(:disabled), a[href] {
+    cursor: pointer;
   }
 
   #root {
@@ -99,9 +128,9 @@
   /* Small mono labels used across the ballot */
   .label {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: var(--text-meta);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
@@ -134,7 +163,7 @@
   /* Markdown inside the candidate's answers */
   .answer-markdown {
     font-family: var(--font-serif);
-    font-size: 1.0625rem;
+    font-size: var(--text-read);
     line-height: 1.55;
     color: var(--color-ink);
     font-optical-sizing: auto;
@@ -185,7 +214,7 @@
     font-family: var(--font-display);
     font-stretch: 80%;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     margin: 0.9em 0 0.4em;
@@ -212,11 +241,6 @@
     max-width: none;
     box-shadow: none;
     background-color: #D9D1C0;
-  }
-
-  .answer-markdown {
-    font-size: 1.1875rem;
-    line-height: 1.6;
   }
 }
 

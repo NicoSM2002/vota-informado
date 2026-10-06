@@ -194,11 +194,11 @@ export default function Chat() {
                 <img src={candidate.photo} alt="" className="h-full w-full object-cover object-top" />
               </div>
               <div className="min-w-0">
-                <h2 className="condensed truncate text-[1.2rem] font-extrabold uppercase leading-none text-ink">
+                <h2 className="condensed truncate text-read font-extrabold uppercase leading-none text-ink">
                   {candidate.name}
                 </h2>
-                <p className="label mt-1 truncate text-ink-mute" style={{ letterSpacing: '0.04em' }}>
-                  Nº {number} · {candidate.party}
+                <p className="label mt-1 truncate text-ink-mute">
+                  Casilla Nº {number} · {candidate.partyShort}
                 </p>
               </div>
             </div>
@@ -207,9 +207,9 @@ export default function Chat() {
               onClick={() => setSourcesOpen(true)}
               className="flex h-10 flex-shrink-0 items-center gap-1.5 border-[1.5px] border-ink px-3 text-ink transition-colors active:bg-ink active:text-paper"
             >
-              <span className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.1em]">Fuentes</span>
+              <span className="font-mono text-meta font-semibold uppercase tracking-[0.1em]">Fuentes</span>
               <span
-                className="flex h-4 min-w-4 items-center justify-center px-1 font-mono text-[0.6rem] font-semibold text-white"
+                className="flex h-4 min-w-4 items-center justify-center px-1 font-mono text-meta font-semibold text-white"
                 style={{ backgroundColor: candidate.color }}
               >
                 {candidate.sources.length}
@@ -259,7 +259,7 @@ export default function Chat() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.28, duration: 0.6, ease }}
-                  className="condensed text-[4rem] font-black uppercase leading-[0.98] text-ink"
+                  className="condensed text-headline font-black uppercase leading-[0.98] text-ink"
                 >
                   ¿Qué quiere
                   <br />
@@ -281,10 +281,10 @@ export default function Chat() {
                       onClick={() => sendMessage(q)}
                       className="group flex w-full items-start gap-3 border-b border-rule py-3.5 text-left transition-colors active:bg-paper-deep lg:-mx-3 lg:w-[calc(100%+1.5rem)] lg:gap-5 lg:px-3 lg:py-4 lg:hover:bg-paper-deep"
                     >
-                      <span className="pt-1 font-mono text-[0.7rem] font-semibold text-ink-mute lg:text-[0.75rem]">
+                      <span className="pt-1 font-mono text-meta font-semibold text-ink-mute">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="flex-1 font-serif text-[1.08rem] leading-snug text-ink lg:text-[1.3rem]">{q}</span>
+                      <span className="flex-1 font-serif text-read leading-snug text-ink">{q}</span>
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="mt-1.5 flex-shrink-0 text-ink transition-transform group-hover:translate-x-1 lg:mt-2">
                         <path d="M1 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="currentColor" strokeWidth="1.5" />
                       </svg>
@@ -311,7 +311,7 @@ export default function Chat() {
                     className="flex flex-col items-end"
                   >
                     <p className="label mb-1.5 text-ink-mute">Tu pregunta</p>
-                    <div className="max-w-[86%] bg-ink px-4 py-3 text-[1rem] font-medium leading-snug text-paper lg:max-w-[75%] lg:px-5 lg:py-3.5 lg:text-[1.1rem]">
+                    <div className="selectable max-w-[86%] bg-ink px-4 py-3 text-body font-medium leading-snug text-paper lg:max-w-[75%] lg:px-5 lg:py-3.5 lg:text-read">
                       {msg.content}
                     </div>
                   </motion.div>
@@ -323,7 +323,7 @@ export default function Chat() {
                     transition={{ duration: 0.3 }}
                   >
                     <AnswerLabel candidate={candidate} />
-                    <div className="answer-markdown border-l-[3px] pl-4 lg:pl-6" style={{ borderColor: candidate.color }}>
+                    <div className="answer-markdown selectable border-l-[3px] pl-4 lg:pl-6" style={{ borderColor: candidate.color }}>
                       <ReactMarkdown>{msg.content}</ReactMarkdown>
                       {isLast && streaming && <span className="caret" style={{ color: candidate.color }} />}
                     </div>
@@ -342,7 +342,7 @@ export default function Chat() {
                   >
                     <AnswerLabel candidate={candidate} />
                     <div className="border-l-[3px] pl-4 lg:pl-6" style={{ borderColor: candidate.color }}>
-                      <p className="font-serif text-[1.05rem] italic text-ink-mute">Consultando su plan de gobierno</p>
+                      <p className="font-serif text-read italic text-ink-mute">Consultando su plan de gobierno</p>
                       <div className="mt-2.5 h-[3px] w-40 overflow-hidden bg-rule">
                         <motion.div
                           className="h-full w-1/3"
@@ -430,7 +430,7 @@ function CandidateFile({ candidate, number }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.5, ease }}
-            className="condensed text-[1.3rem] font-semibold uppercase leading-none text-ink-soft"
+            className="condensed text-title font-semibold uppercase leading-none text-ink-soft"
           >
             {firstName}
           </motion.p>
@@ -438,7 +438,7 @@ function CandidateFile({ candidate, number }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.34, duration: 0.5, ease }}
-            className="condensed mt-1 text-[2.4rem] font-black uppercase leading-[0.85] text-ink"
+            className="condensed mt-1 text-display font-black uppercase leading-[0.85] text-ink"
           >
             {lastName}
           </motion.h3>
@@ -446,7 +446,7 @@ function CandidateFile({ candidate, number }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45 }}
-            className="mt-3 self-start px-1.5 py-0.5 font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-white"
+            className="mt-3 self-start px-1.5 py-0.5 font-mono text-meta font-semibold uppercase tracking-wider text-white"
             style={{ backgroundColor: candidate.color }}
           >
             {candidate.party}
@@ -468,7 +468,7 @@ function CandidateFile({ candidate, number }) {
         >
           “
         </span>
-        <p className="font-serif text-[1.45rem] italic leading-tight text-ink">{candidate.slogan}</p>
+        <p className="font-serif text-title italic leading-tight text-ink">{candidate.slogan}</p>
       </motion.blockquote>
     </>
   )
@@ -496,13 +496,13 @@ function CompareGrid({ others, onCompare, delay }) {
               className="h-full w-full object-cover object-top grayscale transition-[filter,transform] duration-300 group-hover:scale-105 group-hover:grayscale-0"
             />
             <span
-              className="absolute bottom-0 left-0 px-1 font-mono text-[0.55rem] font-semibold text-white"
+              className="absolute bottom-0 left-0 px-1 font-mono text-meta font-semibold text-white"
               style={{ backgroundColor: other.color }}
             >
               VS
             </span>
           </div>
-          <span className="condensed mt-1.5 text-[0.85rem] font-bold uppercase leading-[0.95] text-ink">
+          <span className="condensed mt-1.5 text-small font-bold uppercase leading-[0.95] text-ink">
             {other.shortName}
           </span>
         </button>

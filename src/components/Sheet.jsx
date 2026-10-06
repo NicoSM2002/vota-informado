@@ -67,7 +67,7 @@ export default function Sheet({ isOpen, onClose, eyebrow, title, children }) {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     {eyebrow && <p className="label mb-1.5 text-mark">{eyebrow}</p>}
-                    <h3 className="condensed text-[2rem] font-extrabold uppercase leading-[0.9] text-ink lg:text-[2.5rem]">
+                    <h3 className="condensed text-display font-extrabold uppercase leading-[0.9] text-ink">
                       {title}
                     </h3>
                   </div>

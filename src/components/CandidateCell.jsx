@@ -21,11 +21,11 @@ export default function CandidateCell({ candidate, number, marked, dimmed, onMar
     >
       {/* Number + party emblem */}
       <div className="mb-2.5 flex items-center justify-between">
-        <span className="font-mono text-[0.7rem] font-semibold text-ink">
+        <span className="font-mono text-meta font-semibold text-ink">
           {String(number).padStart(2, '0')}
         </span>
         <span
-          className="flex h-[22px] min-w-[30px] items-center justify-center px-1.5 font-mono text-[0.6rem] font-semibold tracking-wider text-white"
+          className="flex h-[22px] min-w-[30px] items-center justify-center px-1.5 font-mono text-meta font-semibold tracking-wider text-white"
           style={{ backgroundColor: candidate.color }}
         >
           {candidate.partyShort}
@@ -33,7 +33,7 @@ export default function CandidateCell({ candidate, number, marked, dimmed, onMar
       </div>
 
       {/* Photo — the area you "mark" */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden border border-ink">
+      <div className="relative aspect-[4/5] w-full overflow-hidden border border-ink lg:aspect-auto lg:min-h-[120px] lg:flex-1">
         <img
           src={candidate.photo}
           alt=""
@@ -49,12 +49,12 @@ export default function CandidateCell({ candidate, number, marked, dimmed, onMar
       </div>
 
       {/* Name */}
-      <div className="mt-2.5 flex-1">
-        <p className="condensed text-[0.95rem] font-semibold uppercase leading-none text-ink-soft">{first}</p>
-        <p className="condensed mt-0.5 text-[1.45rem] font-extrabold uppercase leading-[0.92] text-ink">{rest}</p>
+      <div className="mt-2.5 flex-1 lg:flex-none">
+        <p className="condensed text-body font-semibold uppercase leading-none text-ink-soft">{first}</p>
+        <p className="condensed mt-0.5 text-title font-extrabold uppercase leading-[0.92] text-ink">{rest}</p>
       </div>
 
-      <p className="label mt-2 leading-snug text-ink-mute" style={{ letterSpacing: '0.06em' }}>
+      <p className="label mt-2 leading-snug text-ink-mute lg:min-h-[2.75em]">
         {candidate.party}
       </p>
     </motion.button>
