@@ -137,7 +137,7 @@ ${dataRule}
   - Si la pregunta es general, responde en máximo 3-4 oraciones resumiendo los puntos clave
   - Solo si la pregunta es específica y detallada, da una respuesta más completa pero nunca más de ${isComparison ? '200' : '150'} palabras
 - Responde de forma concisa y clara, ideal para lectura en celular (párrafos cortos)
-- Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado)
+- Usa markdown para formatear (negritas para puntos clave, listas cuando sea apropiado). NO uses encabezados (##, ###) ni copies títulos de secciones del plan en tu respuesta. Responde en prosa natural o con listas simples.
 - Responde siempre en español
 
 A continuación está tu plan de gobierno completo:
@@ -147,7 +147,12 @@ ${plan}
 ---${comparisonPlans}`
 
   try {
-    const response = await client.messages.create({
+    // Set headers for SSE streaming
+    res.setHeader('Content-Type', 'text/event-stream')
+    res.setHeader('Cache-Control', 'no-cache')
+    res.setHeader('Connection', 'keep-alive')
+
+    const stream = await client.messages.stream({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: maxTokens,
       system: finalSystemPrompt,
@@ -157,11 +162,23 @@ ${plan}
       })),
     })
 
-    const text = response.content[0]?.text || 'No pude generar una respuesta.'
-    res.json({ response: text })
+    for await (const event of stream) {
+      if (event.type === 'content_block_delta' && event.delta?.text) {
+        res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`)
+      }
+    }
+
+    res.write('data: [DONE]\n\n')
+    res.end()
   } catch (err) {
     console.error('Anthropic API error:', err.message)
-    res.status(500).json({ error: 'Error communicating with AI service' })
+    // If headers already sent, just end the stream
+    if (res.headersSent) {
+      res.write(`data: ${JSON.stringify({ error: 'Error generating response' })}\n\n`)
+      res.end()
+    } else {
+      res.status(500).json({ error: 'Error communicating with AI service' })
+    }
   }
 })
 
