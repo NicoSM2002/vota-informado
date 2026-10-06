@@ -37,7 +37,7 @@ export default function CandidateCell({ candidate, number, marked, dimmed, onMar
         <img
           src={candidate.photo}
           alt=""
-          className="h-full w-full object-cover object-top transition-[filter] duration-500 group-hover:grayscale-0"
+          className="h-full w-full object-cover object-top transition-[filter,transform] duration-500 group-hover:scale-[1.04]"
           style={{ filter: marked ? 'grayscale(0)' : 'grayscale(0.15) contrast(1.02)' }}
         />
         {/* Candidate color wash at the base */}

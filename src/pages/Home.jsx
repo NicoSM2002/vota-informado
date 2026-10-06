@@ -47,153 +47,167 @@ export default function Home() {
       transition={{ duration: 0.3 }}
       className="relative h-dvh"
     >
-      <div className="h-full overflow-y-auto">
-        {/* Ballot stub */}
-        <motion.div {...rise(0)} className="px-5 pt-[max(1rem,env(safe-area-inset-top))]">
-          <div className="flex items-center justify-between py-2">
-            <span className="label text-ink-mute">Tarjetón informativo</span>
-            <span className="label text-ink-mute">Nº 2026—0001</span>
+      <div className="h-full overflow-y-auto lg:px-8 lg:py-12">
+        {/* On desktop the ballot is a printed sheet lying on the desk */}
+        <div className="relative lg:mx-auto lg:max-w-[1240px] lg:bg-paper lg:shadow-[0_1px_0_rgba(22,19,15,0.08),0_30px_70px_-25px_rgba(22,19,15,0.45)]">
+          {/* Ballot stub */}
+          <motion.div {...rise(0)} className="px-5 pt-[max(1rem,env(safe-area-inset-top))] lg:px-12 lg:pt-6">
+            <div className="flex items-center justify-between py-2">
+              <span className="label text-ink-mute">Tarjetón informativo</span>
+              <span className="label text-ink-mute">Nº 2026—0001</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="flex-shrink-0 text-ink-mute" aria-hidden="true">
+                <circle cx="6" cy="6" r="3" stroke="currentColor" strokeWidth="1.6" />
+                <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M8.5 7.5L20 18M8.5 16.5L20 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+              <div className="perforation flex-1" />
+            </div>
+          </motion.div>
+
+          {/* Masthead */}
+          <header className="guilloche relative mt-4 px-5 pb-6 pt-5 lg:mt-6 lg:px-12 lg:pb-10 lg:pt-8">
+            <div className="lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
+              <div>
+                <motion.p {...rise(0.08)} className="label mb-3 text-ink-soft">
+                  Elecciones presidenciales · Colombia 2026
+                </motion.p>
+
+                {/* Sized to the container so "INFORMADO." always fits the width */}
+                <h1 className="condensed @container text-ink">
+                  <span className="block text-[20.5cqw] font-black uppercase leading-[0.8] tracking-[-0.01em]">
+                    <motion.span {...rise(0.14)} className="block">
+                      Vota
+                    </motion.span>
+                    <motion.span {...rise(0.22)} className="block">
+                      Informado<span className="text-mark">.</span>
+                    </motion.span>
+                  </span>
+                </h1>
+
+                <div className="lg:hidden">
+                  <FlagRule height={7} delay={0.4} className="mt-5" />
+                </div>
+
+                <motion.p
+                  {...rise(0.5)}
+                  className="mt-4 font-serif text-[1.25rem] italic leading-snug text-ink-soft lg:hidden"
+                >
+                  Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
+                </motion.p>
+              </div>
+
+              {/* Desktop right column */}
+              <div className="hidden lg:block">
+                <motion.p {...rise(0.4)} className="mb-8 font-serif text-[2rem] italic leading-[1.15] text-ink-soft">
+                  Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
+                </motion.p>
+                <Instructions delay={0.5} />
+              </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <FlagRule height={8} delay={0.45} className="mt-10" />
+            </div>
+          </header>
+
+          <div className="mx-5 mb-5 lg:hidden">
+            <Instructions delay={0.58} />
           </div>
-          <div className="flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="flex-shrink-0 text-ink-mute" aria-hidden="true">
-              <circle cx="6" cy="6" r="3" stroke="currentColor" strokeWidth="1.6" />
-              <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.6" />
-              <path d="M8.5 7.5L20 18M8.5 16.5L20 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-            <div className="perforation flex-1" />
-          </div>
-        </motion.div>
 
-        {/* Masthead */}
-        <header className="guilloche relative mt-4 px-5 pb-6 pt-5">
-          <motion.p {...rise(0.08)} className="label mb-3 text-ink-soft">
-            Elecciones presidenciales · Colombia 2026
-          </motion.p>
+          {/* The ballot grid */}
+          <div className="mx-5 border-2 border-ink bg-ink lg:mx-12">
+            <div className="grid grid-cols-2 gap-px lg:grid-cols-6">
+              {candidates.map((candidate, i) => (
+                <motion.div
+                  key={candidate.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.66 + i * 0.07, duration: 0.55, ease }}
+                  className="bg-paper-light"
+                >
+                  <CandidateCell
+                    candidate={candidate}
+                    number={i + 1}
+                    marked={marked === candidate.id}
+                    dimmed={marked !== null && marked !== candidate.id}
+                    onMark={() => mark(candidate.id)}
+                  />
+                </motion.div>
+              ))}
 
-          {/* Sized to the container so "INFORMADO." always fits the width */}
-          <h1 className="condensed @container text-ink">
-            <span className="block text-[20.5cqw] font-black uppercase leading-[0.8] tracking-[-0.01em]">
-              <motion.span {...rise(0.14)} className="block">
-                Vota
-              </motion.span>
-              <motion.span {...rise(0.22)} className="block">
-                Informado<span className="text-mark">.</span>
-              </motion.span>
-            </span>
-          </h1>
-
-          <FlagRule height={7} delay={0.4} className="mt-5" />
-
-          <motion.p
-            {...rise(0.5)}
-            className="mt-4 font-serif text-[1.25rem] italic leading-snug text-ink-soft"
-          >
-            Conoce a tu candidato, infórmate y&nbsp;vota&nbsp;bien.
-          </motion.p>
-        </header>
-
-        {/* Instructions */}
-        <motion.div {...rise(0.58)} className="mx-5 mb-5 flex border-[1.5px] border-ink">
-          <div className="flex items-center bg-ink px-2.5">
-            <span className="label text-paper [writing-mode:vertical-rl] rotate-180">Instrucciones</span>
-          </div>
-          <p className="flex-1 px-3.5 py-3 text-[0.9rem] leading-snug text-ink-soft">
-            Marque con una <strong className="font-bold text-mark">X</strong> la casilla del candidato con quien quiere
-            conversar. Responde con base en su plan de gobierno oficial.
-          </p>
-        </motion.div>
-
-        {/* The ballot grid */}
-        <div className="mx-5 border-2 border-ink bg-ink">
-          <div className="grid grid-cols-2 gap-px">
-            {candidates.map((candidate, i) => (
+              {/* Voto en blanco — every Colombian ballot has one */}
               <motion.div
-                key={candidate.id}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.66 + i * 0.07, duration: 0.55, ease }}
+                transition={{ delay: 0.66 + candidates.length * 0.07, duration: 0.55, ease }}
                 className="bg-paper-light"
               >
-                <CandidateCell
-                  candidate={candidate}
-                  number={i + 1}
-                  marked={marked === candidate.id}
-                  dimmed={marked !== null && marked !== candidate.id}
-                  onMark={() => mark(candidate.id)}
-                />
+                <motion.button
+                  onClick={() => mark('blanco')}
+                  whileTap={{ scale: 0.97 }}
+                  animate={{ opacity: marked && marked !== 'blanco' ? 0.35 : 1 }}
+                  aria-label="Qué es el voto en blanco"
+                  className="relative flex h-full w-full flex-col p-3 text-left"
+                >
+                  <div className="mb-2.5 flex items-center justify-between">
+                    <span className="font-mono text-[0.7rem] font-semibold text-ink">VB</span>
+                    <span className="flex h-[22px] w-[22px] items-center justify-center border border-ink font-mono text-[0.7rem]">
+                      ?
+                    </span>
+                  </div>
+                  <div className="relative flex aspect-[4/5] w-full items-center justify-center border border-dashed border-ink-mute">
+                    <span className="condensed text-center text-[1.6rem] font-extrabold uppercase leading-[0.9] text-ink">
+                      Voto
+                      <br />
+                      en blanco
+                    </span>
+                    {marked === 'blanco' && (
+                      <BallotMark className="absolute inset-[-6%] h-[112%] w-[112%]" strokeWidth={8} />
+                    )}
+                  </div>
+                  <p className="mt-2.5 flex-1 font-serif text-[0.85rem] italic leading-snug text-ink-soft">
+                    ¿Qué significa votar en blanco?
+                  </p>
+                </motion.button>
               </motion.div>
-            ))}
+            </div>
+          </div>
 
-            {/* Voto en blanco — every Colombian ballot has one */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.66 + candidates.length * 0.07, duration: 0.55, ease }}
-              className="bg-paper-light"
+          {/* Footer */}
+          <motion.footer {...rise(1.1)} className="relative px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-10 lg:px-12 lg:pb-10 lg:pt-12">
+            <div
+              className="absolute right-6 top-6 rotate-[-8deg] border-2 border-mark px-2.5 py-1.5 text-mark opacity-80 lg:right-auto lg:left-[52%] lg:top-10"
+              aria-hidden="true"
             >
-              <motion.button
-                onClick={() => mark('blanco')}
-                whileTap={{ scale: 0.97 }}
-                animate={{ opacity: marked && marked !== 'blanco' ? 0.35 : 1 }}
-                aria-label="Qué es el voto en blanco"
-                className="relative flex h-full w-full flex-col p-3 text-left"
-              >
-                <div className="mb-2.5 flex items-center justify-between">
-                  <span className="font-mono text-[0.7rem] font-semibold text-ink">VB</span>
-                  <span className="flex h-[22px] w-[22px] items-center justify-center border border-ink font-mono text-[0.7rem]">
-                    ?
-                  </span>
-                </div>
-                <div className="relative flex aspect-[4/5] w-full items-center justify-center border border-dashed border-ink-mute">
-                  <span className="condensed text-center text-[1.6rem] font-extrabold uppercase leading-[0.9] text-ink">
-                    Voto
-                    <br />
-                    en blanco
-                  </span>
-                  {marked === 'blanco' && (
-                    <BallotMark className="absolute inset-[-6%] h-[112%] w-[112%]" strokeWidth={8} />
-                  )}
-                </div>
-                <p className="mt-2.5 flex-1 font-serif text-[0.85rem] italic leading-snug text-ink-soft">
-                  ¿Qué significa votar en blanco?
-                </p>
-              </motion.button>
-            </motion.div>
-          </div>
+              <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">No válido</p>
+              <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">como voto</p>
+            </div>
+
+            <p className="max-w-[230px] font-serif text-[0.95rem] leading-snug text-ink-soft lg:max-w-[420px] lg:text-[1.1rem]">
+              Información basada en los planes de gobierno oficiales de cada candidato.
+            </p>
+            <p className="label mt-3 text-ink-mute">Sin afiliación política</p>
+
+            <div className="mt-8 h-[2px] bg-ink" />
+
+            <div className="mt-4 flex items-end justify-between gap-4">
+              <div>
+                <p className="label text-ink-mute">Creado por</p>
+                <p className="mt-1 text-[0.9rem] font-semibold text-ink">Juan Nicolás Saravia</p>
+                <a href="mailto:juansaravia2002@gmail.com" className="mt-0.5 block font-mono text-[0.7rem] text-ink-soft underline decoration-rule underline-offset-2">
+                  juansaravia2002@gmail.com
+                </a>
+              </div>
+              <div className="flex h-9 items-stretch gap-[1.5px]" aria-hidden="true">
+                {barcode.map((w, i) => (
+                  <div key={i} className={i % 2 ? 'bg-transparent' : 'bg-ink'} style={{ width: w }} />
+                ))}
+              </div>
+            </div>
+          </motion.footer>
         </div>
-
-        {/* Footer */}
-        <motion.footer {...rise(1.1)} className="relative px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-10">
-          <div
-            className="absolute right-6 top-6 rotate-[-8deg] border-2 border-mark px-2.5 py-1.5 text-mark opacity-80"
-            aria-hidden="true"
-          >
-            <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">No válido</p>
-            <p className="condensed text-[0.95rem] font-extrabold uppercase leading-none">como voto</p>
-          </div>
-
-          <p className="max-w-[230px] font-serif text-[0.95rem] leading-snug text-ink-soft">
-            Información basada en los planes de gobierno oficiales de cada candidato.
-          </p>
-          <p className="label mt-3 text-ink-mute">Sin afiliación política</p>
-
-          <div className="mt-8 h-[2px] bg-ink" />
-
-          <div className="mt-4 flex items-end justify-between gap-4">
-            <div>
-              <p className="label text-ink-mute">Creado por</p>
-              <p className="mt-1 text-[0.9rem] font-semibold text-ink">Juan Nicolás Saravia</p>
-              <a href="mailto:juansaravia2002@gmail.com" className="mt-0.5 block font-mono text-[0.7rem] text-ink-soft underline decoration-rule underline-offset-2">
-                juansaravia2002@gmail.com
-              </a>
-            </div>
-            <div className="flex h-9 items-stretch gap-[1.5px]" aria-hidden="true">
-              {barcode.map((w, i) => (
-                <div key={i} className={i % 2 ? 'bg-transparent' : 'bg-ink'} style={{ width: w }} />
-              ))}
-            </div>
-          </div>
-        </motion.footer>
       </div>
 
       <Sheet isOpen={blankOpen} onClose={closeBlank} eyebrow="Casilla VB" title="Voto en blanco">
@@ -225,6 +239,20 @@ export default function Home() {
           </button>
         </div>
       </Sheet>
+    </motion.div>
+  )
+}
+
+function Instructions({ delay }) {
+  return (
+    <motion.div {...rise(delay)} className="flex border-[1.5px] border-ink bg-paper">
+      <div className="flex items-center bg-ink px-2.5">
+        <span className="label rotate-180 text-paper [writing-mode:vertical-rl]">Instrucciones</span>
+      </div>
+      <p className="flex-1 px-3.5 py-3 text-[0.9rem] leading-snug text-ink-soft lg:px-5 lg:py-4 lg:text-[1rem]">
+        Marque con una <strong className="font-bold text-mark">X</strong> la casilla del candidato con quien quiere
+        conversar. Responde con base en su plan de gobierno oficial.
+      </p>
     </motion.div>
   )
 }

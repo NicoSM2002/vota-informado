@@ -206,6 +206,20 @@
   }
 }
 
+/* Desktop: full-width layout, the ballot sits on a desk */
+@media (min-width: 1024px) {
+  .app-shell {
+    max-width: none;
+    box-shadow: none;
+    background-color: #D9D1C0;
+  }
+
+  .answer-markdown {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+  }
+}
+
 /* Paper grain overlay */
 body::before {
   content: '';
